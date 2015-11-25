@@ -66,12 +66,12 @@ var App = React.createClass({
             </button>
             <a className="navbar-brand target" href="/">TextBookXchange</a>
 
-        
-                <div>
+            <div>
              <Link className="btn btn-warning" to="/">Home</Link>
              <Link className="btn btn-warning" to="login">Login</Link>
-         
              <Link className="btn btn-warning" to="register">Register</Link>
+             <Link className="btn btn-warning" to="booklisting">Catalog</Link>
+             <Link className="btn btn-warning" to="request">Request</Link>
              </div>
             
             </div>
@@ -106,6 +106,33 @@ var Home = React.createClass({
                 PS - Cameron is lame.
             </p>
             </div>
+            );
+    }
+});
+
+var Catalog = React.createClass({
+    render: function() {
+        return (
+            <div>
+            <p>
+                <h2> TextBook Catalog: </h2>
+            </p>
+            </div>
+
+            );
+    }
+
+});
+
+var Request = React.createClass({
+    render: function() {
+        return (
+            <div>
+            <p>
+                <h2> Request a Textbook: </h2>
+            </p>
+            </div>
+
             );
     }
 });
@@ -349,21 +376,6 @@ var ListEntry = React.createClass({
     }
 });
 
-var TestMenu = React.createClass({
-    render:function(){
-        return(
-            <div id="sse3">
-              <div id="sses3">
-                <ul>
-                  <li><a href="?menu=3&skin=1&p=Javascript-Menus">Javascript Menus</a></li>
-                  <li><a href="?menu=3&skin=1&p=Horizontal-Menus">Horizontal Menus</a></li>
-                  <li><a href="?menu=3&skin=1&p=Web-Menus">Web Menus</a></li>
-                </ul>
-              </div>
-            </div>
-            );
-    }
-});
 
 // List items component, shows the list of items
 var ListItems = React.createClass({
@@ -682,7 +694,8 @@ var auth = {
 // routes for the app
 var routes = (
     <Route name="app" path="/" handler={App}>
-        <Route name="test" handler = {TestMenu}/>
+    <Route name="booklisting" path ="/catalog" handler={Catalog}/>
+    <Route name="request" path ="/request" handler ={Request}/>
 	    <Route name="list" path ="/list" handler={List}/>
 	    <Route name="active" path = "/list/active" handler={List}/>
 	    <Route name="completed" path = "/list/completed" handler={List}/>
