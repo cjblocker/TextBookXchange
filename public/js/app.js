@@ -100,9 +100,12 @@ var App = React.createClass({
 var Home = React.createClass({
     render: function() {
         return (
+            <div>
             <p>
-                UNDER CONSTRUCTION
+                <h2>UNDER CONSTRUCTION</h2>
+                PS - Cameron is lame.
             </p>
+            </div>
             );
     }
 });
