@@ -54,7 +54,7 @@ var App = React.createClass({
     render: function() {
         return (
             <div>
-            <nav className="navbar navbar-default" role="navigation">
+            <nav className="navbar navbar-inverse" role="navigation">
             <div className="container-fluid">
             <div className="navbar-header">
             <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
