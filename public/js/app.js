@@ -66,13 +66,13 @@ var App = React.createClass({
             </button>
             <a className="navbar-brand target" href="/">TextBookXchange</a>
 
-            <div>
+           
              <Link className="btn btn-warning" to="/">Home</Link>
              <Link className="btn btn-warning" to="login">Login</Link>
              <Link className="btn btn-warning" to="register">Register</Link>
              <Link className="btn btn-warning" to="booklisting">Catalog</Link>
              <Link className="btn btn-warning" to="request">Request</Link>
-             </div>
+             
             
             </div>
             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
