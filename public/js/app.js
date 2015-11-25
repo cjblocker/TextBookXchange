@@ -55,15 +55,25 @@ var App = React.createClass({
         return (
             <div>
             <nav className="navbar navbar-default" role="navigation">
-            <div className="container">
+            <div className="container-fluid">
             <div className="navbar-header">
             <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
             <span className="sr-only">Toggle navigation</span>
             <span className="icon-bar"></span>
             <span className="icon-bar"></span>
             <span className="icon-bar"></span>
+
             </button>
-            <a className="navbar-brand" href="/">List-o-matic</a>
+            <a className="navbar-brand target" href="/">TextBookXchange</a>
+
+        
+                <div>
+             <Link className="btn btn-warning" to="/">Home</Link>
+             <Link className="btn btn-warning" to="login">Login</Link>
+         
+             <Link className="btn btn-warning" to="register">Register</Link>
+             </div>
+            
             </div>
             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             {this.state.loggedIn ? (
@@ -91,7 +101,7 @@ var Home = React.createClass({
     render: function() {
         return (
             <p>
-            <Link className="btn btn-default" to="login">Login</Link> or <Link className="btn btn-warning" to="register">Register</Link>
+                UNDER CONSTRUCTION
             </p>
             );
     }
@@ -333,6 +343,22 @@ var ListEntry = React.createClass({
             </header>
             );
 
+    }
+});
+
+var TestMenu = React.createClass({
+    render:function(){
+        return(
+            <div id="sse3">
+              <div id="sses3">
+                <ul>
+                  <li><a href="?menu=3&skin=1&p=Javascript-Menus">Javascript Menus</a></li>
+                  <li><a href="?menu=3&skin=1&p=Horizontal-Menus">Horizontal Menus</a></li>
+                  <li><a href="?menu=3&skin=1&p=Web-Menus">Web Menus</a></li>
+                </ul>
+              </div>
+            </div>
+            );
     }
 });
 
@@ -653,6 +679,7 @@ var auth = {
 // routes for the app
 var routes = (
     <Route name="app" path="/" handler={App}>
+        <Route name="test" handler = {TestMenu}/>
 	    <Route name="list" path ="/list" handler={List}/>
 	    <Route name="active" path = "/list/active" handler={List}/>
 	    <Route name="completed" path = "/list/completed" handler={List}/>
@@ -665,4 +692,5 @@ var routes = (
 // Run the routes
 Router.run(routes, function(Handler) {
     React.render(<Handler/>, document.body);
+
 });
