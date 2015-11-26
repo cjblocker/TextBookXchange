@@ -54,42 +54,26 @@ var App = React.createClass({
     render: function() {
         return (
             <div>
-            <nav className="navbar navbar-inverse" role="navigation">
-            <div className="container-fluid">
-            <div className="navbar-header">
-            <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-            <span className="sr-only">Toggle navigation</span>
-            <span className="icon-bar"></span>
-            <span className="icon-bar"></span>
-            <span className="icon-bar"></span>
+                <nav className="navbar navbar-inverse" role="navigation">
+                    <div className="container-fluid">
+                    
+                        <div className="navbar-header">
+                      
+                            <a className="navbar-brand target" href="/">TextBookXchange
+                                         <Link className="btn btn-warning" to="/" align = "right">Home</Link>
+                                         <Link className="btn btn-warning" to="login">Login</Link>
+                                         <Link className="btn btn-warning" to="register">Register</Link>
+                                         <Link className="btn btn-warning" to="booklisting">Catalog</Link>
+                                         <Link className="btn btn-warning" to="request">Request</Link>
+                                         <Link className="btn btn-warning" to="listbook">List Book</Link>
+                            </a>
+                        </div>
+                    </div>
+                </nav>
 
-            </button>
-            <a className="navbar-brand target" href="/">TextBookXchange</a>
-
-           
-             <Link className="btn btn-warning" to="/">Home</Link>
-             <Link className="btn btn-warning" to="login">Login</Link>
-             <Link className="btn btn-warning" to="register">Register</Link>
-             <Link className="btn btn-warning" to="booklisting">Catalog</Link>
-             <Link className="btn btn-warning" to="request">Request</Link>
-             
-            
-            </div>
-            <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            {this.state.loggedIn ? (
-                <ul className="nav navbar-nav">
-                <li><a href="#/list">All</a></li>
-                <li><a href="#/list/active">Active</a></li>
-                <li><a href="#/list/completed">Completed</a></li>
-                <li><a href="#" onClick={this.logout}>Logout</a></li>
-                </ul>
-                ) : (<div></div>)}
-            </div>
-            </div>
-            </nav>
-            <div className="container">
-            <RouteHandler/>
-            </div>
+                <div className="container">
+                    <RouteHandler/>
+                </div>
             </div>
             );
 
@@ -110,6 +94,8 @@ var Home = React.createClass({
     }
 });
 
+
+
 var Catalog = React.createClass({
     render: function() {
         return (
@@ -124,17 +110,73 @@ var Catalog = React.createClass({
 
 });
 
-var Request = React.createClass({
-    render: function() {
+var ListBook = React.createClass({
+      render: function() {
         return (
             <div>
             <p>
-                <h2> Request a Textbook: </h2>
+                <h2> List a Textbook: </h2>
+                <form className="form-vertical" onSubmit={this.request}>
+                <input type="text" placeholder="Book Title" ref="booktitle" autoFocus={true} />
+                <input type="text" placeholder="Course Number" ref="coursenumber"/>
+                <input type="text" placeholder="Edition" ref="edition"/>
+                <input type="text" placeholder="Rent or Sell" ref="listtype"/>
+                <input type="text" placeholder="Asking Price" ref="bookprice"/>
+                <input className="btn btn-warning" type="submit" value="Submit" />
+                </form>
+
             </p>
             </div>
 
             );
     }
+
+
+});
+
+var Request = React.createClass({
+
+    request: function(event) {
+        // prevent default browser submit
+        event.preventDefault();
+        // get data from form
+        var btitle = this.refs.booktitle.getDOMNode().value;
+        var cnumber = this.refs.coursenumber.getDOMNode().value;
+        if (!btitle || !cnumber) {
+            return;
+        }
+        // login via API
+        auth.username(btitle, cnumber, function(loggedIn) {
+            // login callback
+            if (!loggedIn)
+                return this.setState({
+                    error: true
+                });
+            this.context.router.transitionTo('/request');
+        }.bind(this));
+    },
+
+
+    render: function() {
+        return (
+            <div>
+            <p>
+                <h2> Request a Textbook: </h2>
+                <form className="form-vertical" onSubmit={this.request}>
+                <input type="text" placeholder="Book Title" ref="booktitle" autoFocus={true} />
+                <input type="text" placeholder="Course Number" ref="coursenumber"/>
+                <input type="text" placeholder="Edition" ref="edition"/>
+                <input className="btn btn-warning" type="submit" value="Request" />
+                </form>
+
+            </p>
+            </div>
+
+            );
+    }
+
+    
+
 });
 
 // Login page, shows the login form and redirects to the list if login is successful
@@ -238,7 +280,7 @@ var Register = React.createClass({
             <input type="text" placeholder="Name" ref="name" autoFocus={true} />
             <input type="text" placeholder="Username" ref="username"/>
             <input type="password" placeholder="Password" ref="password"/>
-            <input className="btn" type="submit" value="Register" />
+            <input className="btn btn-warning" type="submit" value="Register" />
             {this.state.error ? (
                 <div className="alert">Invalid username or password.</div>
                 ) : null }
@@ -696,6 +738,7 @@ var routes = (
     <Route name="app" path="/" handler={App}>
     <Route name="booklisting" path ="/catalog" handler={Catalog}/>
     <Route name="request" path ="/request" handler ={Request}/>
+    <Route name="listbook" path ="/listbook" handler ={ListBook}/>
 	    <Route name="list" path ="/list" handler={List}/>
 	    <Route name="active" path = "/list/active" handler={List}/>
 	    <Route name="completed" path = "/list/completed" handler={List}/>
