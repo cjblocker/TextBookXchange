@@ -122,6 +122,7 @@ var ListBook = React.createClass({
                 <input type="text" placeholder="Edition" ref="edition"/>
                 <input type="text" placeholder="Rent or Sell" ref="listtype"/>
                 <input type="text" placeholder="Asking Price" ref="bookprice"/>
+                
                 <input className="btn btn-warning" type="submit" value="Submit" />
                 </form>
 
