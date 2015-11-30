@@ -1,9 +1,13 @@
 body {
+    background-color: gray;
 }
 
 .container {
-    max-width: 960px;
+    width: 1000px;
+    height: 100%;
     margin: 0px auto !important;
+    padding: 55px 0px 0px 0px;  
+    box-shadow: 0px 10px 0px 10px #888888;
 }
 
 .btn-xs {
@@ -33,28 +37,31 @@ body {
 }
 
 .navbar {
-    margin-top: 20px;
     border-radius: 0px !important;
 }
 
 
-.navbar-default {
-  background-color: #aec4f5 !important;
+.navbar-inverse {
+  background-color: black !important;
   background-image: none;
   background-repeat: no-repeat;
   filter: none;
   border: none !important;
-  box-shadow: 0px 2px 5px 2px #aaa;
+  width: 1000;
+  margin: auto;
 }
 
-.navbar-default .navbar-nav>li>a {
+.navbar-fixed-top {
+}
+
+.navbar-inverse .navbar-nav>li>a {
     padding-top: 20px;
     color: #333 !important;
     font-weight: bold;
 }
 
-.navbar-default .navbar-brand {
-    color: #333 !important;
+.navbar-inverse .navbar-brand {
+    color: white !important;
     font-family: Romanesco;
     font-size: 2.5em;
     margin-right: 50px;

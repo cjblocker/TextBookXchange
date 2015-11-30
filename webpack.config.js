@@ -20,7 +20,7 @@ module.exports = {
     loaders: [
       // loader for React JSX
       {
-	test: /\.js$/,
+	test: /\.jsx?$/,
 	exclude: /node_modules/,
 	loader: "babel",
 	query: {
@@ -31,6 +31,10 @@ module.exports = {
       {
 	test: /\.html$/,
 	loader: "file?name=[name].[ext]",
+      },
+      {
+  test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.woff$|\.ttf$|\.wav$|\.mp3$/,
+  loader: "file?name=[path][name].[ext]",
       },
       // loaders for Bootstrap CSS
       { test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader","css-loader?sourceMap") },
