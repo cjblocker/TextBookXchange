@@ -30,12 +30,12 @@ module.exports = React.createClass({
              <li><Link className="btn btn-warning" to="catalog">Catalog</Link></li>
              <li><Link className="btn btn-warning" to="request">Request</Link></li>
              <li><Link className="btn btn-warning" to="listbook">List Book</Link></li>
-            {this.props.loggedIn ? (<ul className="nav navbar-nav navbar-right">
-                   <li><a className="btn btn-warning"href="#/list">All</a></li>
-                   <li><a className="btn btn-warning" href="#/list/active">Active</a></li>
-                   <li><a className="btn btn-warning" href="#/list/completed">Completed</a></li>
+            {this.props.loggedIn ? ([
+                   <li><a className="btn btn-warning"href="#/list">All</a></li>,
+                   <li><a className="btn btn-warning" href="#/list/active">Active</a></li>,
+                   <li><a className="btn btn-warning" href="#/list/completed">Completed</a></li>,
                    <li><a className="btn btn-warning" href="#" onClick={this.logout}>Logout</a></li>
-                   </ul>
+                   ]
                ) : (<div></div>)}
           </ul>
         </div>

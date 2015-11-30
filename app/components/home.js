@@ -15,19 +15,17 @@ var Home = React.createClass({
 		backgroundRepeat: 'no-repeat'
 	};
 	var searchTitleDiv = {
-		padding: '100px 0',
+		padding: '200px 0',
 		textAlign: 'center'
 	};
     return (<div>
     		<div style={imgBanner}>
-    			<div style={searchTitleDiv}></div>
     			<div style={searchTitleDiv}>
     				<h3> Welcome to </h3>
     				<h1> TextBookXchange </h1>
     				<br />
     				<h2> [Put Search Bar Here] </h2>
     			</div>
-    			<div style={searchTitleDiv}></div>
     		</div>
     	</div>
     );
