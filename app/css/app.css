@@ -1,13 +1,15 @@
 body {
-    background-color: gray;
+    background-color: #2F3C4F;
 }
 
 .container {
+    background-color: #506F86;
     width: 1000px;
     height: 100%;
     margin: 0px auto !important;
-    padding: 55px 0px 0px 0px;  
-    box-shadow: 0px 10px 0px 10px #888888;
+    padding: 55px 0px 0px 0px;
+    border: 0;  
+    box-shadow: 0px 0px 14px 3px rgba(136,136,136,0.71);
 }
 
 .btn-xs {
@@ -42,7 +44,7 @@ body {
 
 
 .navbar-inverse {
-  background-color: black !important;
+  background-color: #506F86 !important;
   background-image: none;
   background-repeat: no-repeat;
   filter: none;
