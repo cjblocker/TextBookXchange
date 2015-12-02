@@ -24,7 +24,7 @@ var Home = React.createClass({
     				<h3> Welcome to </h3>
     				<h1> TextBookXchange </h1>
     				<br />
-    				<h2> [Put Search Bar Here] </h2>
+    				<h2> [CAMERONISLAME] </h2>
     			</div>
     		</div>
         <br/>

@@ -23,7 +23,6 @@ module.exports = React.createClass({
           <ul className="nav navbar-nav">
           </ul>
           
-          
           <ul className="nav navbar-nav navbar-right">
               <li><Link className="btn btn-warning" to="login">Login</Link></li>
               <li><Link className="btn btn-warning" to="register">Register</Link></li>
