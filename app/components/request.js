@@ -33,8 +33,11 @@ var Request = React.createClass({
                 <h2> Request a Textbook: </h2>
                 <form className="form-vertical" onSubmit={this.request}>
                 <input type="text" placeholder="Book Title" ref="booktitle" autoFocus={true} />
+                <br/><br/>
                 <input type="text" placeholder="Course Number" ref="coursenumber"/>
+                <br/><br/>
                 <input type="text" placeholder="Edition" ref="edition"/>
+                <br/><br/>
                 <input className="btn btn-warning" type="submit" value="Request" />
                 </form>
 

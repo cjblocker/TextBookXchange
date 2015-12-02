@@ -21,9 +21,9 @@ require("../css/app.css");
 var routes = (
   <Router>
     <Route name="app" path="/" component ={App}>
-    <Route name="catalog" path ="/catalog" handler={Catalog}/>
-    <Route name="request" path ="/request" handler ={Request}/>
-    <Route name="listbook" path ="/listbook" handler ={ListBook}/>
+    <Route name="catalog" path ="/catalog" component ={Catalog}/>
+    <Route name="request" path ="/request" component ={Request}/>
+    <Route name="listbook" path ="/listbook" component ={ListBook}/>
       <IndexRoute component = {Home} />
       <Route name="list" path="/list" component={List} />
       <Route name="active" path="/list/active" component={List} />

@@ -27,6 +27,13 @@ var Home = React.createClass({
     				<h2> [Put Search Bar Here] </h2>
     			</div>
     		</div>
+        <br/>
+        <h1> Welcome! </h1>
+        <p>
+          We are committed to giving students the best option to rent, sell or buy textbooks!
+          <br/>Feel free to look for a specific book without commitment!
+          <br/>Or, register to be able to list or request a book.
+        </p>
     	</div>
     );
   }
