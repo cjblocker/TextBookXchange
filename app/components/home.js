@@ -31,7 +31,7 @@ var Home = React.createClass({
     				<br />
     				<form role="search">
                 <div className="form-group">
-                  <input type="text" value='Search for a Textbook here' className="form-control" placeholder="Search" style={{width:'60%',display:'inline', borderRadius: '10px 0 0 10px'}} />
+                  <input type="text" value='Search for a Textbook here' className="form-control" placeholder="Search" style={{width:'60%',display:'inline', borderRadius: '10px 0 0 10px', fontStyle:'italic'}} />
                 <button type="submit" className="btn search-btn" style={{display:'inline'}}>Submit</button>
                 </div>
             </form>

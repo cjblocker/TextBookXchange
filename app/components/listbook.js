@@ -7,7 +7,8 @@ var Link = ReactRouter.Link;
 var ListBook = React.createClass({
       render: function() {
         return (
-            <div>
+            <div className='content'>
+      <div className='center' style={{width:300}}>
             <p>
                 <h2> List a Textbook: </h2>
                 <form className="form-vertical" onSubmit={this.request}>
@@ -25,6 +26,7 @@ var ListBook = React.createClass({
                 </form>
 
             </p>
+            </div>
             </div>
 
             );

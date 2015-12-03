@@ -28,7 +28,8 @@ var Request = React.createClass({
 
     render: function() {
         return (
-            <div>
+            <div className='content'>
+      <div className='center' style={{width:300}}>
             <p>
                 <h2> Request a Textbook: </h2>
                 <form className="form-vertical" onSubmit={this.request}>
@@ -42,6 +43,7 @@ var Request = React.createClass({
                 </form>
 
             </p>
+            </div>
             </div>
 
             );
