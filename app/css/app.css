@@ -62,7 +62,7 @@ body {
 
 .navbar-inverse .navbar-brand {
     color: white !important;
-    font-family: Romanesco;
+    font-family: Lobster;
     font-size: 2.5em;
     margin-right: 50px;
 }
@@ -78,3 +78,11 @@ body {
     background-color: #DE703C;
 }
 
+
+.search-btn {
+    background-color: #DE703C;
+    border-radius: 0 10px 10px 0;
+}
+
+.search-btn:hover { 
+}

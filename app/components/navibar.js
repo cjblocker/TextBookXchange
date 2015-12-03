@@ -14,7 +14,7 @@ module.exports = React.createClass({
             <span className="icon-bar"></span>
             <span className="icon-bar"></span>
           </button>
-          <a className="navbar-brand" href="#">TextBookXchange</a>
+          <a className="navbar-brand" href="#">TextBook<span style={{fontSize: 'larger'}}>X</span>change</a>
         </div>
 
 

@@ -20,15 +20,21 @@ var Home = React.createClass({
     borderRadius: 20,
     backgroundColor: '#FBB040',
 		textAlign: 'center',
-    display: 'inline-block'
+    display: 'inline-block',
+    opacity: .95
 	};
     return (<div>
     		<div style={imgBanner}>
     			<div style={searchTitleDiv}>
     				<h3> Welcome to </h3>
-    				<h1> TextBookXchange </h1>
+    				<h1 style={{fontFamily: 'Lobster', fontSize: '3.5em'}}> TextBook<span style={{fontSize: 'larger'}}>X</span>change </h1>
     				<br />
-    				<h2> [Place Search Bar Here] </h2>
+    				<form role="search">
+                <div className="form-group">
+                  <input type="text" value='Search for a Textbook here' className="form-control" placeholder="Search" style={{width:'60%',display:'inline', borderRadius: '10px 0 0 10px'}} />
+                <button type="submit" className="btn search-btn" style={{display:'inline'}}>Submit</button>
+                </div>
+            </form>
     			</div>
     		</div>
         <div className='content'>
