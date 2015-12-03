@@ -14,7 +14,7 @@ module.exports = {
   },
   plugins: [
     new ExtractTextPlugin("./css/styles.css"),
-    new CommonsChunkPlugin("vendor", "./js/vendor.js"),
+    new CommonsChunkPlugin("vendor", "./js/vendor.js")
   ],
   module: {
     loaders: [
@@ -33,7 +33,7 @@ module.exports = {
 	loader: "file?name=[name].[ext]",
       },
       {
-  test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.woff$|\.ttf$|\.wav$|\.mp3$/,
+  test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.woff$|\.ttf$|\.wav$|\.mp3$|\.ico$/,
   loader: "file?name=[path][name].[ext]",
       },
       // loaders for Bootstrap CSS

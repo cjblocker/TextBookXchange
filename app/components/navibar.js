@@ -24,19 +24,17 @@ module.exports = React.createClass({
           </ul>
           
           <ul className="nav navbar-nav navbar-right">
-              <li><Link className="btn btn-warning" to="login">Login</Link></li>
-              <li><Link className="btn btn-warning" to="register">Register</Link></li>
-              <li><Link className="btn btn-warning" to="catalog">Catalog</Link></li>
+              <li><Link className="btn" to="catalog">Catalog</Link></li>
 
             {this.props.loggedIn ? ([
-                   <li><a className="btn btn-warning" href="#/request">Request</a></li>,
-                   <li><a className="btn btn-warning" href="#/listbook">List Book</a></li>,
-                   <li><a className="btn btn-warning"href="#/list">All</a></li>,
-                   <li><a className="btn btn-warning" href="#/list/active">Active</a></li>,
-                   <li><a className="btn btn-warning" href="#/list/completed">Completed</a></li>,
-                   <li><a className="btn btn-warning" href="#" onClick={this.logout}>Logout</a></li>
+                   <li key='request'><a className="btn" href="#/request">Request</a></li>,
+                   <li key='list'><a className="btn" href="#/listbook">List Book</a></li>,
+                   <li key='logout'><a className="btn" href="#" onClick={this.props.logout}>Logout</a></li>
                    ]
-               ) : (<div></div>)}
+               ) : ([
+              <li key='login'><Link className="btn" to="login">Login</Link></li>,
+              <li key='register'><Link className="btn" to="register">Register</Link></li>
+              ])}
           </ul>
         </div>
       </div>

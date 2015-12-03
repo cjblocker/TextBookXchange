@@ -42,7 +42,8 @@ var Register = React.createClass({
   // show the registration form
   render: function() {
     return (
-      <div>
+      <div className='content'>
+      <div className='center' style={{width:150}}>
         <h2>Register</h2>
         <form className="form-vertical" onSubmit={this.register}>
           <input type="text" placeholder="Name" ref="name" autoFocus={true} />
@@ -56,6 +57,7 @@ var Register = React.createClass({
              <div className="alert">Invalid username or password.</div>
            ) : null }
         </form>
+        </div>
       </div>
     );
   }

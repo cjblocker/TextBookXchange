@@ -5,6 +5,7 @@ var History = ReactRouter.History;
 var auth = require("./auth.js");
 var Link = ReactRouter.Link;
 var Navibar = require("./navibar")
+var Footer = require("./footer")
 
 
 // Top-level component for the app
@@ -41,10 +42,10 @@ var App = React.createClass({
   render: function() {
     return (
       <div>
-        <Navibar loggedIn={this.state.loggedIn} />
-	<div className="container">
-	  {this.props.children}
-	</div>
+        <Navibar loggedIn={this.state.loggedIn} logout={this.logout}/>
+	<div className="container">{this.props.children}
+        <Footer />
+  </div>
       </div>
     );
 

@@ -1,7 +1,7 @@
 {
-  "name": "listomatic-node-mongo",
+  "name": "TextbookXchange",
   "version": "0.0.0",
-  "description": "listomatic node server with mongo storage",
+  "description": "A site for buying, renting and selling textbooks",
   "main": "app.js",
   "dependencies": {
     "bcrypt": "~0.8.3",
@@ -24,6 +24,7 @@
     "css-loader": "^0.23.0",
     "extract-text-webpack-plugin": "^0.9.1",
     "file-loader": "^0.8.4",
+    "html-webpack-plugin": "^1.7.0",
     "style-loader": "^0.13.0",
     "url-loader": "^0.5.7",
     "webpack": "^1.12.6"
@@ -31,6 +32,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Daniel Zappala",
+  "author": "Cameron Blocker and Brian Watson",
   "license": "GPL"
 }

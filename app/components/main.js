@@ -17,6 +17,8 @@ var ListBook = require("./listbook.js");
 
 require("../../node_modules/bootstrap/dist/css/bootstrap.min.css");
 require("../css/app.css");
+require("../favicon.ico");
+require("../favicon.png");
 
 var routes = (
   <Router>
@@ -34,4 +36,4 @@ var routes = (
   </Router>
 );
 
-ReactDOM.render(routes, document.getElementById('content'));
+ReactDOM.render(routes, document.getElementById('target'));

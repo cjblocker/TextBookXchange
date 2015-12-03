@@ -42,7 +42,8 @@ var Login = React.createClass({
   // show the login form
   render: function() {
     return (
-      <div>
+      <div className='content'>
+      <div className='center' style={{width:150}}>
         <h2>Login</h2>
         <form className="form-vertical" onSubmit={this.login}>
         
@@ -57,6 +58,7 @@ var Login = React.createClass({
              <div className="alert">Invalid username or password.</div>
            ) : null}
         </form>
+        </div>
       </div>
     );
   }

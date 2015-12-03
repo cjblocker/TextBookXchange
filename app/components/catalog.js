@@ -7,7 +7,7 @@ var Link = ReactRouter.Link;
 var Catalog = React.createClass({
     render: function() {
         return (
-            <div>
+            <div className='content'>
             <p>
                 <h2> TextBook Catalog: </h2>
             </p>
