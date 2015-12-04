@@ -25,11 +25,12 @@ var Register = React.createClass({
     var name = this.refs.name.value;
     var username = this.refs.username.value;
     var password = this.refs.password.value;
-    if (!name || !username || !password) {
+    var email = this.refs.email.value;
+    if (!name || !username || !password || !email) {
       return;
     }
     // register via the API
-    auth.register(name, username, password, function(loggedIn) {
+    auth.register(name, username, password, email, function(loggedIn) {
       // register callback
       if (!loggedIn)
         return this.setState({
@@ -52,7 +53,10 @@ var Register = React.createClass({
           <br/><br/>
           <input type="password" placeholder="Password" ref="password"/>
           <br/><br/>
+          <input type="email" placeholder="Email" ref="email"/>
+          <br/><br/>
           <input className="btn btn-warning" type="submit" value="Register" />
+
           {this.state.error ? (
              <div className="alert">Invalid username or password.</div>
            ) : null }

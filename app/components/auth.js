@@ -2,7 +2,7 @@ var $ = require("jquery");
 
 // authentication object
 var auth = {
-  register: function(name, username, password, cb) {
+  register: function(name, username, password, email, cb) {
     // submit request to server, call the callback when complete
     var url = "/api/users/register";
     $.ajax({
@@ -12,7 +12,8 @@ var auth = {
       data: {
         name: name,
         username: username,
-        password: password
+        password: password,
+        email: email
       },
       // on success, store a login token
       success: function(res) {
