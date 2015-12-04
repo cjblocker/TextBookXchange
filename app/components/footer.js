@@ -8,7 +8,8 @@ var Footer = React.createClass({
   render: function() {
   	
     return (<div className='foot'>
-    		&copy; Cameron Blocker and Brian Watson 2015
+    		&copy; Cameron Blocker and Brian Watson 2015 <br />
+    		<Link to="contact">Contact Us!</Link>
     	</div>
     );
   }
