@@ -21,7 +21,7 @@ var Contact = React.createClass({
           <div className="contact">
             <div className="circleImage" style={{backgroundImage: 'url(https://www.positivecoach.org/common/cms/images/people/PCA%20Staff/BrianWatson.jpg)'}}></div>
             <h3>Brian Watson</h3>
-            <p>email</p>
+            <p>brianlwatson@gmail.com</p>
           </div>
          </div>
       </div>

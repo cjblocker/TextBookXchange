@@ -6,23 +6,30 @@ var Link = ReactRouter.Link;
 
 var Book = React.createClass({
 
+
+
 	render: function() {
   	var bookitem = {
 	    width: 800,
 	    height: 100,
-	    borderRadius: 70,
+	    borderRadius: 30,
 	    backgroundColor: '#FBB040',
 	    textAlign:'center',
 	    display: 'inline-block',
-	    opacity: .95
+	    opacity: .95,
+	    margin: '15px 30px'
 	};
+
+
 	
     return (
     	<div>
     		<div style={bookitem}>
-    				<p>   CS360 					WE DONT HAVE A BOOK 					$Priceless<br/>
-    				      CameronBlocker			Is Lame									(123)-456-789
-    				      </p>
+    				<br/>
+    				<p>   {this.props.bookCourse}	{this.props.bookTitle} 	{this.props.bookPrice}
+	    				<br/><br/>
+					    {this.props.bookSeller}  {this.props.bookSellerEmail}							
+					</p>
     				
     			</div>
     	</div>
