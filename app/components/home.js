@@ -5,6 +5,12 @@ var banner = require("../img/textbooks.jpg");
 var Link = ReactRouter.Link;
 
 var Home = React.createClass({
+  getInitialState: function() {
+    return {searchValue: ""}
+  },
+  formChange: function(event) {
+    this.setState({searchValue: event.target.value});
+  },
   render: function() {
   	var imgBanner = {
 		width: 1000,
@@ -12,16 +18,16 @@ var Home = React.createClass({
 		backgroundImage: 'url('+banner+')',
 		backgroundSize: '1000px auto',
 		backgroundRepeat: 'no-repeat',
-    verticalAlign: 'center'
+        verticalAlign: 'center'
 	};
 	var searchTitleDiv = {
 		margin:  '150px 300px',
-    width: 400,
-    borderRadius: 20,
-    backgroundColor: '#FBB040',
+        width: 400,
+        borderRadius: 20,
+        backgroundColor: '#FBB040',
 		textAlign: 'center',
-    display: 'inline-block',
-    opacity: .95
+        display: 'inline-block',
+        opacity: .95
 	};
     return (<div>
     		<div style={imgBanner}>
@@ -31,7 +37,7 @@ var Home = React.createClass({
     				<br />
     				<form role="search">
                 <div className="form-group">
-                  <input type="text" value='Search for a Textbook here' className="form-control" placeholder="Search" style={{width:'60%',display:'inline', borderRadius: '10px 0 0 10px', fontStyle:'italic'}} />
+                  <input type="text" value={this.state.searchValue} onChange={this.formChange} className="form-control" placeholder="Search for a Textbook here" style={{width:'60%',display:'inline', borderRadius: '10px 0 0 10px', fontStyle:'italic'}} />
                 <button type="submit" className="btn search-btn" style={{display:'inline'}}>Submit</button>
                 </div>
             </form>

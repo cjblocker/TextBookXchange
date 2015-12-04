@@ -7,6 +7,7 @@ var Book = require("./book.js")
 
  var options = {
         bookList: [{
+            key: 1,
             bookCourse: 'ECEn425',
             bookTitle: 'Primer to Embedded Software',
             bookPrice: '$100',
@@ -15,6 +16,7 @@ var Book = require("./book.js")
         },
 
         {
+            key: 2,
             bookCourse: 'CS360',
             bookTitle: 'Yeah right',
             bookPrice: '$999',
@@ -45,11 +47,8 @@ var Catalog = React.createClass({
            
             <div className='content'>
              <h2> TextBook Catalog: </h2>
-            <p>
-
                 <br/>
                 {list}
-            </p>
             </div>
 
             );
