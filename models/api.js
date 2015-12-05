@@ -78,7 +78,24 @@ app.get('/api/items', function (req,res) {
   });
 });
 
-
+// get all textbooks for the user
+app.get('/api/books', function (req,res) {
+  user = User.verifyToken(req.headers.authorization, function(user) {
+    if (user) {
+      // if the token is valid, find all the user's items and return them
+      textBook.find({user:user.id}, function(err, items) {
+  if (err) {
+    res.sendStatus(403);
+    return;
+  }
+  // return value is the list of items as JSON
+  res.json({items: items});
+      });
+    } else {
+      res.sendStatus(403);
+    }
+  });
+});
 
 
 // add an item
@@ -154,6 +171,7 @@ app.get('/api/items/:item_id', function (req,res) {
   });
 });
 
+// get a book by course number
 app.get('/api/books/:item_id', function (req,res) {
   // validate the supplied token
   user = User.verifyToken(req.headers.authorization, function(user) {
@@ -209,6 +227,42 @@ app.put('/api/items/:item_id', function (req,res) {
   });
 });
 
+// update a book
+app.put('/api/books/:item_id', function (req,res) {
+  // validate the supplied token
+  user = User.verifyToken(req.headers.authorization, function(user) {
+    if (user) {
+      // if the token is valid, then find the requested item
+      textBook.findById(req.params.item_id, function(err,item) {
+  if (err) {
+    res.sendStatus(403);
+    return;
+  }
+        // update the item if it belongs to the user, otherwise return an error
+        if (item.user != user.id) {
+          res.sendStatus(403);
+    return;
+        }
+        item.title = req.body.item.title;
+        item.courseNumber = req.body.item.courseNumber;
+        item.edition = req.body.edition;
+        item.list_type = req.body.list_type;
+        item.price = req.body.price;
+        item.save(function(err) {
+    if (err) {
+      res.sendStatus(403);
+      return;
+    }
+          // return value is the item as JSON
+          res.json({item:item});
+        });
+      });
+    } else {
+      res.sendStatus(403);
+    }
+  });
+});
+
 // delete an item
 app.delete('/api/items/:item_id', function (req,res) {
   // validate the supplied token
@@ -220,6 +274,25 @@ app.delete('/api/items/:item_id', function (req,res) {
 	  res.sendStatus(403);
 	  return;
 	}
+        res.sendStatus(200);
+      });
+    } else {
+      res.sendStatus(403);
+    }
+  });
+});
+
+// delete a book
+app.delete('/api/books/:item_id', function (req,res) {
+  // validate the supplied token
+  user = User.verifyToken(req.headers.authorization, function(user) {
+    if (user) {
+      // if the token is valid, then find the requested item
+      textBook.findByIdAndRemove(req.params.item_id, function(err,item) {
+  if (err) {
+    res.sendStatus(403);
+    return;
+  }
         res.sendStatus(200);
       });
     } else {
