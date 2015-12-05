@@ -7,6 +7,10 @@ var History = ReactRouter.History;
 
 var ListBook = React.createClass({
 
+    contextTypes: {
+        location: React.PropTypes.object
+    },
+
     mixins: [ History ],
 
     addBook: function(event) {
@@ -25,10 +29,9 @@ var ListBook = React.createClass({
         api.addBook(title, courseNumber, edition, list_type, price, function(loggedIn) {
       // login callback
       if (!loggedIn)
-        return this.setState({
-          error: true
-        });
-      this.history.pushState(null, '/');
+        this.context.router.transitionTo('/login');
+      else
+        this.history.pushState(null, '/');
     }.bind(this));
         this.refs.title.value = '';
         this.refs.coursenumber.value = '';

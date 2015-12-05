@@ -29,6 +29,8 @@ var api = require("./api.js");
 
 var Catalog = React.createClass({
     
+
+
     getInitialState: function() {
         return ({
             items : []
@@ -48,6 +50,8 @@ var Catalog = React.createClass({
           this.setState({
             items: data.items
           });
+        console.log("Here");
+        console.log(this.state.items);
    
   },
 
