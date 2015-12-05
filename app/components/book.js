@@ -22,9 +22,9 @@ var Book = React.createClass({
     	<div>
     		<div style={bookitem}>
     				<br/>
-    				<p>   {this.props.bookCourse}	{this.props.bookTitle} 	{this.props.bookPrice}
+    				<p>   {this.props.title}	{this.props.courseNumber} 	{this.props.edition}	{this.props.price}
 	    				<br/><br/>
-					    {this.props.bookSeller}  {this.props.bookSellerEmail}							
+					    {this.props.user} 	{this.props.userEmail}		{this.props.list_type}
 					</p>
     				
     			</div>

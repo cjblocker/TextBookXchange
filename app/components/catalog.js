@@ -5,32 +5,9 @@ var Link = ReactRouter.Link;
 var Book = require("./book.js")
 var api = require("./api.js");
 
- var options = {
-        bookList: [{
-            key: 1,
-            bookCourse: 'ECEn425',
-            bookTitle: 'Primer to Embedded Software',
-            bookPrice: '$100',
-            bookSeller: 'Brian Watson',
-            bookSellerEmail: 'brianlwatson@gmail.com'
-        },
-
-        {
-            key: 2,
-            bookCourse: 'CS360',
-            bookTitle: 'Yeah right',
-            bookPrice: '$999',
-            bookSeller: 'RODOLFO',
-            bookSellerEmail: 'RODOLFODROPS@GMAIL.com'
-        }
-        ]
-    };
-
-
+ 
 var Catalog = React.createClass({
     
-
-
     getInitialState: function() {
         return ({
             items : []
@@ -50,7 +27,7 @@ var Catalog = React.createClass({
           this.setState({
             items: data.items
           });
-        console.log("Here");
+
         console.log(this.state.items);
    
   },

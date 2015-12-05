@@ -82,15 +82,15 @@ app.get('/api/items', function (req,res) {
 app.get('/api/books', function (req,res) {
   user = User.verifyToken(req.headers.authorization, function(user) {
     if (user) {
-      // if the token is valid, find all the user's items and return them
-  //     textBook.find({user:user.id}, function(err, items) {
-  // if (err) {
-  //   res.sendStatus(403);
-  //   return;
-  // }
-  // // return value is the list of items as JSON
-  // res.json({items: items});
-  //     });
+   //   if the token is valid, find all the user's items and return them
+      textBook.find({}, function(err, items) {
+  if (err) {
+    res.sendStatus(403);
+    return;
+  }
+  // return value is the list of items as JSON
+  res.json({items: items});
+      });
     } else {
       res.sendStatus(403);
     }
@@ -122,6 +122,8 @@ app.post('/api/items', function (req,res) {
 app.post('/api/books', function (req,res){
 user = User.verifyToken(req.headers.authorization, function(user) {
     if (user) {
+      console.log("**");
+      console.log(user.email);
       // if the token is valid, create the item for the user
       textBook.create({
           title:req.body.item.title,
@@ -129,7 +131,9 @@ user = User.verifyToken(req.headers.authorization, function(user) {
           edition:req.body.item.edition,
           list_type:req.body.item.list_type,
           price:req.body.item.price,
-          user:user 
+          user:user.name,
+          userEmail: user.email 
+
       },
        function(err,item) {
   if (err) {
