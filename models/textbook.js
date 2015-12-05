@@ -12,6 +12,9 @@ var textBookSchema = new Schema({
 	list_type: String,
 	price: Number,
 	user: String
+	//add a condition of the book
+	//add a field for notes
+
 });
 
 textBookSchema.set('toJSON', {
@@ -19,5 +22,5 @@ textBookSchema.set('toJSON', {
 });
 
 
-var textBook = mongoose.model('textBooks', textBookSchema);
+var textBook = mongoose.model('books', textBookSchema);
 module.exports = textBook;

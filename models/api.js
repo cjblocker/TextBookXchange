@@ -1,7 +1,7 @@
 var app = require('./express.js');
 var User = require('./user.js');
 var Item = require('./item.js');
-
+var textBook = require('./textbook.js');
 // setup body parser
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());
@@ -83,14 +83,14 @@ app.get('/api/books', function (req,res) {
   user = User.verifyToken(req.headers.authorization, function(user) {
     if (user) {
       // if the token is valid, find all the user's items and return them
-      textBook.find({user:user.id}, function(err, items) {
-  if (err) {
-    res.sendStatus(403);
-    return;
-  }
-  // return value is the list of items as JSON
-  res.json({items: items});
-      });
+  //     textBook.find({user:user.id}, function(err, items) {
+  // if (err) {
+  //   res.sendStatus(403);
+  //   return;
+  // }
+  // // return value is the list of items as JSON
+  // res.json({items: items});
+  //     });
     } else {
       res.sendStatus(403);
     }

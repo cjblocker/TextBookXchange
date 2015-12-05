@@ -30,6 +30,7 @@ var api = {
       dataType: 'json',
       type: 'GET',
       headers: {'Authorization': localStorage.token},
+
       success: function(res) {
         if(cb)
           cb(true, res);
