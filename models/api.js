@@ -78,6 +78,9 @@ app.get('/api/items', function (req,res) {
   });
 });
 
+
+
+
 // add an item
 app.post('/api/items', function (req,res) {
   // validate the supplied token
@@ -98,6 +101,34 @@ app.post('/api/items', function (req,res) {
   });
 });
 
+//add a book
+app.post('/api/books', function (req,res){
+user = User.verifyToken(req.headers.authorization, function(user) {
+    if (user) {
+      // if the token is valid, create the item for the user
+      textBook.create({
+          title:req.body.item.title,
+          courseNumber:req.body.item.courseNumber,
+          edition:req.body.item.edition,
+          list_type:req.body.item.list_type,
+          price:req.body.item.price,
+          user:user 
+      },
+       function(err,item) {
+  if (err) {
+    res.sendStatus(403);
+    return;
+  }
+  res.json({item:item});
+      });
+    } else {
+      res.sendStatus(403);
+    }
+  });
+});
+
+
+
 // get an item
 app.get('/api/items/:item_id', function (req,res) {
   // validate the supplied token
@@ -115,6 +146,28 @@ app.get('/api/items/:item_id', function (req,res) {
 	  return;
         }
         // return value is the item as JSON
+        res.json({item:item});
+      });
+    } else {
+      res.sendStatus(403);
+    }
+  });
+});
+
+app.get('/api/books/:item_id', function (req,res) {
+  // validate the supplied token
+  user = User.verifyToken(req.headers.authorization, function(user) {
+    if (user) {
+      // if the token is valid, then find the requested book by course Number
+      textBook.find(req.params.courseNumber, function(err, item) {
+  if (err) {
+    res.sendStatus(403);
+    return;
+  }
+        if (item.user != user) {
+          res.sendStatus(403);
+    return;
+        }
         res.json({item:item});
       });
     } else {

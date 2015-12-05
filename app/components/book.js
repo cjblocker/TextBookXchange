@@ -6,8 +6,6 @@ var Link = ReactRouter.Link;
 
 var Book = React.createClass({
 
-
-
 	render: function() {
   	var bookitem = {
 	    width: 800,
@@ -20,8 +18,6 @@ var Book = React.createClass({
 	    margin: '15px 30px'
 	};
 
-
-	
     return (
     	<div>
     		<div style={bookitem}>
