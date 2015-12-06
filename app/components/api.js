@@ -29,7 +29,8 @@ var api = {
       url: url,
       dataType: 'json',
       type: 'GET',
-      headers: {'Authorization': localStorage.token},
+      headers: {'Authorization': localStorage.token,
+          'UserBooks' : '0'},
 
       success: function(res) {
         if(cb)
@@ -40,6 +41,26 @@ var api = {
         if (cb)
           cb(false, status);
       }
+    });
+  },
+
+  getUserBooks: function(cb) {
+    var url = "/api/books";
+    $.ajax({
+      url: url,
+      dataType: 'json',
+      type: 'GET',
+      headers: {'Authorization': localStorage.token,
+            'UserBooks': '1'},
+      success: function(res) {
+        if(cb)
+          cb(true, res);
+      },
+      error: function(xhr, status, err) {
+        delete localStorage.token;
+        if (cb)
+          cb(false, status);
+      }   
     });
   },
   

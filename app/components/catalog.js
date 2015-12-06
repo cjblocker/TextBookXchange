@@ -28,9 +28,7 @@ var Catalog = React.createClass({
         console.log(this.state.items);
   },
 
-  //this.state.items contains the items
-
-
+  //this.state.items contains items
     render: function() {
          var list = this.state.items.map(function(bookProps)
             {

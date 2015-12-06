@@ -31,7 +31,7 @@ var ListBook = React.createClass({
       if (!loggedIn)
         this.history.pushState(null, '/login');
       else
-        this.history.pushState(null, '/');
+        this.history.pushState(null, '/dashboard');
     }.bind(this));
 
         this.refs.title.value = '';

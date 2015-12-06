@@ -9,8 +9,8 @@ var Request = React.createClass({
         // prevent default browser submit
         event.preventDefault();
         // get data from form
-        var btitle = this.refs.booktitle.getDOMNode().value;
-        var cnumber = this.refs.coursenumber.getDOMNode().value;
+        var btitle = this.refs.booktitle.value;
+        var cnumber = this.refs.coursenumber.value;
         if (!btitle || !cnumber) {
             return;
         }
@@ -21,8 +21,12 @@ var Request = React.createClass({
                 return this.setState({
                     error: true
                 });
-            this.context.router.transitionTo('/request');
+            this.context.router.transitionTo('/dashboard');
         }.bind(this));
+
+        this.refs.booktitle.value = '';
+        this.refs.coursenumber.value = '';
+
     },
 
 

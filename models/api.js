@@ -83,16 +83,30 @@ app.get('/api/items', function (req,res) {
 app.get('/api/books', function (req,res) {
   user = User.verifyToken(req.headers.authorization, function(user) {
     if (user) {
-   //   if the token is valid, find all the user's items and return them
-      textBook.find({}, function(err, items) {
-  if (err) {
-    res.sendStatus(403);
-    return;
-  }
-  // return value is the list of items as JSON
-  res.json({items: items});
-      });
-    } else {
+      if(req.headers.userbooks == '1')
+      {
+          textBook.find({user:user.username}, function(err, items) {
+          if (err) {
+            res.sendStatus(403);
+            return;
+          }
+          // return value is the list of items as JSON
+          res.json({items: items});
+              });
+      }
+      else {
+         //   if the token is valid, find all the user's items and return them
+            textBook.find({}, function(err, items) {
+            if (err) {
+              res.sendStatus(403);
+              return;
+            }
+            // return value is the list of items as JSON
+            res.json({items: items});
+                });
+      } 
+  } 
+  else {
       res.sendStatus(403);
     }
   });

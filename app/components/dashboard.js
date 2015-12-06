@@ -4,7 +4,6 @@ var History = ReactRouter.History;
 var Link = ReactRouter.Link;
 var Book = require("./book.js")
 var api = require("./api.js");
-
  
 var Dashboard = React.createClass({
      
@@ -15,7 +14,7 @@ var Dashboard = React.createClass({
     },
 
     componentDidMount: function() {
-        api.getBooks(this.listSet);
+        api.getUserBooks(this.listSet);
     },
 
     listSet: function(status, data) {
@@ -30,9 +29,15 @@ var Dashboard = React.createClass({
   	},
 
     render: function() {
+    	 var list = this.state.items.map(function(bookProps)
+            {
+                return <Book {...bookProps}/>
+            });
+
         return (
          <div className='content'>
         <h3> User Profile: </h3>
+         {list}
         </div>
             );
     }
