@@ -10,7 +10,9 @@ var textBookSchema = new Schema({
 	courseNumber: String,
 	edition: String,
 	list_type: String,
+	author: String,
 	price: String,
+	notes: String,
 	user: String,
 	userEmail: String
 	//add a condition of the book

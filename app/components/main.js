@@ -14,8 +14,8 @@ var Register = require("./register.js");
 var Catalog = require("./catalog.js");
 var Request = require("./request.js");
 var ListBook = require("./listbook.js");
-var Contact = require("./contact")
-
+var Contact = require("./contact");
+var Dashboard = require("./dashboard");
 require("../../node_modules/bootstrap/dist/css/bootstrap.min.css");
 require("../css/app.css");
 require("../favicon.ico");
@@ -34,6 +34,7 @@ var routes = (
       <Route name="login" path="/login" component={Login} />
       <Route name="register" path="/register" component={Register} />
       <Route name='contact' path="contact" component={Contact} />
+      <Route name='dashboard' path="dashboard" component={Dashboard} />
     </Route>
   </Router>
 );

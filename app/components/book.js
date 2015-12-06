@@ -22,9 +22,13 @@ var Book = React.createClass({
     	<div>
     		<div style={bookitem}>
     				<br/>
-    				<p>   {this.props.title}	{this.props.courseNumber} 	{this.props.edition}	{this.props.price}
-	    				<br/><br/>
-					    {this.props.user} 	{this.props.userEmail}		{this.props.list_type}
+    				<p>   
+    				Title: {this.props.title}	Course Number: {this.props.courseNumber} 	Edition: {this.props.edition}  Author: {this.props.author}	${this.props.price}
+	    				<br/>
+					    Seller: {this.props.user} 	Email Address:{this.props.userEmail}		For {this.props.list_type} 
+					    <br/> 
+					    {this.props.notes}
+					    
 					</p>
     				
     			</div>

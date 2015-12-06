@@ -130,6 +130,7 @@ user = User.verifyToken(req.headers.authorization, function(user) {
           edition:req.body.item.edition,
           list_type:req.body.item.list_type,
           price:req.body.item.price,
+          notes:req.body.item.notes,
           user:user.name,
           userEmail: user.email 
       },

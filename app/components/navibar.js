@@ -29,6 +29,7 @@ module.exports = React.createClass({
             {this.props.loggedIn ? ([
                    <li key='request'><a className="btn" href="#/request">Request</a></li>,
                    <li key='list'><a className="btn" href="#/listbook">List Book</a></li>,
+                   <li key='dashboard'><a className="btn" href="#/dashboard">Dashboard</a></li>,
                    <li key='logout'><a className="btn" href="#" onClick={this.props.logout}>Logout</a></li>
                    ]
                ) : ([

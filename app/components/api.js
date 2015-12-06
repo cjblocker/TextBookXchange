@@ -71,7 +71,7 @@ var api = {
 
   },
 
-  addBook: function(title, courseNumber, edition, list_type, price, cb)
+  addBook: function(title, courseNumber, edition, author, list_type, price, notes, cb)
   {
     var url = "/api/books";
     $.ajax({
@@ -82,8 +82,10 @@ var api = {
           'title' : title,
           'courseNumber' : courseNumber,
           'edition' : edition,
+          'author' : author,
           'list_type' : list_type,
-          'price' : price
+          'price' : price,
+          'notes' : notes
         }
       }),
       type: 'POST',

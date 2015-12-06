@@ -47,13 +47,13 @@ var Register = React.createClass({
       <div className='center' style={{width:150}}>
         <h2>Register</h2>
         <form className="form-vertical" onSubmit={this.register}>
-          <input type="text" placeholder="Name" ref="name" autoFocus={true} />
+          <input type="text" placeholder="Name" ref="name" style={{width:400}}autoFocus={true} />
           <br/><br/>
-          <input type="text" placeholder="Username" ref="username"/>
+          <input type="text" placeholder="Username" style={{width:400}}ref="username"/>
           <br/><br/>
-          <input type="password" placeholder="Password" ref="password"/>
+          <input type="password" placeholder="Password" style={{width:400}}ref="password"/>
           <br/><br/>
-          <input type="email" placeholder="Email" ref="email"/>
+          <input type="email" placeholder="Email" style={{width:400}}ref="email"/>
           <br/><br/>
           <input className="btn btn-warning" type="submit" value="Register" />
 
