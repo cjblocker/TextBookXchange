@@ -29,7 +29,7 @@ var ListBook = React.createClass({
         api.addBook(title, courseNumber, edition, list_type, price, function(loggedIn) {
       // login callback
       if (!loggedIn)
-        this.context.router.transitionTo('/login');
+        this.history.pushState(null, '/login');
       else
         this.history.pushState(null, '/');
     }.bind(this));

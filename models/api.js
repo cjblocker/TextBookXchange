@@ -21,6 +21,7 @@ app.post('/api/users/register', function (req, res) {
       // if this username is not taken, then create a user record
       user.name = req.body.name;
       user.set_password(req.body.password);
+      user.email = req.body.email;
       user.save(function(err) {
 	if (err) {
 	  res.sendStatus("403");
@@ -122,8 +123,6 @@ app.post('/api/items', function (req,res) {
 app.post('/api/books', function (req,res){
 user = User.verifyToken(req.headers.authorization, function(user) {
     if (user) {
-      console.log("**");
-      console.log(user.email);
       // if the token is valid, create the item for the user
       textBook.create({
           title:req.body.item.title,
@@ -133,7 +132,6 @@ user = User.verifyToken(req.headers.authorization, function(user) {
           price:req.body.item.price,
           user:user.name,
           userEmail: user.email 
-
       },
        function(err,item) {
   if (err) {
