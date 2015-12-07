@@ -15,7 +15,7 @@ var EditableBook = React.createClass({
 
 	deleteEntry: function() {
 		api.deleteBook(this.props, function(loggedIn) {
-      // login callback
+      //login callback
 
       if (!loggedIn)
         this.history.pushState(null, '/login');
@@ -30,24 +30,18 @@ var EditableBook = React.createClass({
 	},
 
 	updateEntry: function() {
-		//this.deleteEntry();
-		console.log(this.refs.title.value);console.log(this.refs.edition.value);
-		console.log(this.refs.courseNumber.value);
-		
-		console.log(this.refs.author.value);
-		console.log(this.refs.list_type.value);
-		console.log(this.refs.price.value);
-		console.log(this.refs.notes.value);
-
-		//api.deleteBook(this.props, function(){});
+		//api.deleteBook(this.props, function(loggedIn){});
 		//api.addBook(this.refs.title.value, this.refs.courseNumber.value, this.refs.edition.value, this.refs.author.value, this.refs.list_type.value, this.refs.price.value, this.refs.notes.value, function(loggedIn) {
-      api.updateBook(this.refs.title.value, this.refs.courseNumber.value, this.refs.edition.value, this.refs.author.value, this.refs.list_type.value, this.refs.price.value, this.refs.notes.value, function(loggedIn) {
-      	//this.deleteEntry();
-      if (!loggedIn)
-        this.history.pushState(null, '/login');
-      else
-        this.history.pushState(null, '/dashboard');
-    }.bind(this));
+    //   api.updateBook(this.refs.title.value, this.refs.courseNumber.value, this.refs.edition.value, this.refs.author.value, this.refs.list_type.value, this.refs.price.value, this.refs.notes.value, function(loggedIn) {
+    //   if (!loggedIn)
+    //     this.history.pushState(null, '/login');
+    //   else
+    //   {
+    //   	this.history.pushState(null, '/dashboard');
+    //   }
+        
+    // }.bind(this));
+
 	},
 
 	getInitialState: function() {
@@ -121,7 +115,7 @@ var EditableBook = React.createClass({
     	<div>
     		<div style={bookitem}>
     				<br/> 
-    				<form className="form-vertical" >
+    				<form className="form-vertical" onClick={this.updateEntry} >
     				Title:    <input type="text" style = {{width:500}} onChange={this.titleChange} value = {this.state.title} ref="title" autoFocus={true} /><br/>
     				Course Number: <input type="text" style = {{width:500}} onChange={this.courseNumberChange} value = {this.state.courseNumber} ref="courseNumber" autoFocus={true} /><br/>
 					Edition: <input type="text" style = {{width:500}} onChange={this.editionChange} value = {this.state.edition} ref="edition" autoFocus={true} /><br/>	 
