@@ -177,8 +177,9 @@ var api = {
     });
   },
 
-  updateBook: function(title, courseNumber, edition, author, list_type, price, notes, cb) {
-    var url = "/api/books/" + title;
+  updateBook: function(item, title, courseNumber, edition, author, list_type, price, notes, cb) {
+    console.log(item);
+    var url = "/api/books" ;
     $.ajax({
       url: url,
       contentType: 'application/json',

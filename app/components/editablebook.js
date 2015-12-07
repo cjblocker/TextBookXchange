@@ -31,16 +31,29 @@ var EditableBook = React.createClass({
 
 	updateEntry: function() {
 		//api.deleteBook(this.props, function(loggedIn){});
-		//api.addBook(this.refs.title.value, this.refs.courseNumber.value, this.refs.edition.value, this.refs.author.value, this.refs.list_type.value, this.refs.price.value, this.refs.notes.value, function(loggedIn) {
-    //   api.updateBook(this.refs.title.value, this.refs.courseNumber.value, this.refs.edition.value, this.refs.author.value, this.refs.list_type.value, this.refs.price.value, this.refs.notes.value, function(loggedIn) {
-    //   if (!loggedIn)
-    //     this.history.pushState(null, '/login');
-    //   else
-    //   {
-    //   	this.history.pushState(null, '/dashboard');
-    //   }
+		// api.updateBook(this.props, this.refs.title.value, this.refs.courseNumber.value, this.refs.edition.value, this.refs.author.value, this.refs.list_type.value, this.refs.price.value, this.refs.notes.value, function(loggedIn) {
+  //     	console.log("THIS: ");
+  //     	console.log(this.props);
+
+      api.addBook(this.refs.title.value, this.refs.courseNumber.value, this.refs.edition.value, this.refs.author.value, this.refs.list_type.value, this.refs.price.value, this.refs.notes.value, function(loggedIn) {
+      //login callback
+      api.deleteBook(this.props, this.props.reload);
+      if (!loggedIn)
+        this.history.pushState(null, '/login');
+      else
+      {
+      	this.history.pushState(null, '/login');
+      	this.history.pushState(null, '/dashboard');
+      }
         
-    // }.bind(this));
+    }.bind(this)); 
+        // console.log(this.refs.title.value);
+        // console.log(this.refs.courseNumber.value);
+        // console.log(this.refs.edition.value);
+        // console.log(this.refs.author.value);
+        // console.log(this.refs.list_type.value);
+        // console.log(this.refs.price.value);
+        // console.log(this.refs.notes.value);
 
 	},
 
@@ -115,7 +128,7 @@ var EditableBook = React.createClass({
     	<div>
     		<div style={bookitem}>
     				<br/> 
-    				<form className="form-vertical" onClick={this.updateEntry} >
+    				<form className="form-vertical" >
     				Title:    <input type="text" style = {{width:500}} onChange={this.titleChange} value = {this.state.title} ref="title" autoFocus={true} /><br/>
     				Course Number: <input type="text" style = {{width:500}} onChange={this.courseNumberChange} value = {this.state.courseNumber} ref="courseNumber" autoFocus={true} /><br/>
 					Edition: <input type="text" style = {{width:500}} onChange={this.editionChange} value = {this.state.edition} ref="edition" autoFocus={true} /><br/>	 
@@ -125,7 +138,7 @@ var EditableBook = React.createClass({
 				    Notes: <input type="text" style = {{width:500}} onChange={this.notesChange} value = {this.state.notes} ref="notes" autoFocus={true} /><br/>	 
 					<br/>
 					<input className = "btn btn-danger" type="remove" value="Remove" onClick={this.deleteEntry}/>
-					<input className="btn btn-warning" type="submit" value="Submit" />
+					<input className="btn btn-warning" type="submit" value="Submit" onClick={this.updateEntry}/>
 					</form>
     				
     			</div>
