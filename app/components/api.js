@@ -177,18 +177,20 @@ var api = {
     });
   },
 
-  updateBook: function(item, cb) {
-    var url = "/api/books/" + item.id;
+  updateBook: function(title, courseNumber, edition, author, list_type, price, notes, cb) {
+    var url = "/api/books/" + title;
     $.ajax({
       url: url,
       contentType: 'application/json',
       data: JSON.stringify({
         item: {
-          title: item.title,
-          courseNumber: item.courseNumber,
-          edition: item.edition,
-          list_type: item.list_type, 
-          price: item.price
+          'title' : title,
+          'courseNumber' : courseNumber,
+          'edition' : edition,
+          'author' : author,
+          'list_type' : list_type,
+          'price' : price,
+          'notes' : notes
         }
       }),
       type: 'PUT',
