@@ -280,6 +280,39 @@ app.put('/api/books/:item_id', function (req,res) {
   });
 });
 
+//api users request
+app.put('/api/users/request/:user_id', function (req,res) {
+  // validate the supplied token
+  user = User.verifyToken(req.headers.authorization, function(user) {
+    if (user) {
+      // if the token is valid, then find the requested item
+  User.findOne({username: req.body.username}, function(err,user) {
+  if (err) {
+    res.sendStatus(403);
+    return;
+  }
+        // update the item if it belongs to the user, otherwise return an error
+        if (item.user != user.id) {
+          res.sendStatus(403);
+    return;
+        }
+        item.request = req.body.item.request;
+        item.save(function(err) {
+    if (err) {
+      res.sendStatus(403);
+      return;
+    }
+          // return value is the item as JSON
+          res.json({item:item});
+        });
+      });
+    } else {
+      res.sendStatus(403);
+    }
+  });
+});
+
+
 // delete an item
 app.delete('/api/items/:item_id', function (req,res) {
   // validate the supplied token

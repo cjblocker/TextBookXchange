@@ -92,6 +92,32 @@ var api = {
 
   },
 
+  addRequest: function(request, cb) {
+    var url = "/api/users/request" ;
+    $.ajax({
+      url: url,
+      contentType: 'application/json',
+      data: JSON.stringify({
+        item: {
+          'request': request
+        }
+      }),
+      type: 'PUT',
+      headers: {'Authorization': localStorage.token},
+      success: function(res) {
+        if (cb)
+          cb(true, res);
+      },
+      error: function(xhr, status, err) {
+        // if there is an error, remove the login token
+        delete localStorage.token;
+        if (cb)
+          cb(false, status);
+      }
+    });
+
+  },
+
   addBook: function(title, courseNumber, edition, author, list_type, price, notes, cb)
   {
     var url = "/api/books";
@@ -179,6 +205,7 @@ var api = {
       }
     });
   },
+
 
   // delete an item, call the callback when complete
   deleteItem: function(item, cb) {

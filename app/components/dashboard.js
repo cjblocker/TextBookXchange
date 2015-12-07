@@ -37,9 +37,11 @@ var Dashboard = React.createClass({
         return (
          <div className='content'>
         <h3> User Profile: </h3>
+        <br/><br/>
+        <h4> My Books: </h4>
          {list}
         </div>
-            );
+        );
     }
 
 });

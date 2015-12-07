@@ -25,7 +25,6 @@ var Catalog = React.createClass({
           this.setState({
             items: data.items
           });
-        console.log(this.state.items);
   },
 
   //this.state.items contains items
