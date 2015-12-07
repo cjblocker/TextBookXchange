@@ -3,13 +3,31 @@ var ReactRouter = require("react-router");
 var History = ReactRouter.History;
 var Link = ReactRouter.Link;
 var api = require("./api.js");
+var Dashboard = require("./dashboard.js");
 
-
-var Book = React.createClass({
+var EditableBook = React.createClass({
 
 	contextTypes: {
         location: React.PropTypes.object
     },
+
+    mixins: [ History ],
+
+	deleteEntry: function() {
+		api.deleteBook(this.props, function(loggedIn) {
+      // login callback
+
+      if (!loggedIn)
+        this.history.pushState(null, '/login');
+      else
+      {
+      	this.history.pushState(null, '/login');
+      	this.history.pushState(null, '/dashboard');
+      }
+        
+    }.bind(this));
+		
+	},
 
 	render: function() {
   	var bookitem = {
@@ -34,6 +52,8 @@ var Book = React.createClass({
 					    <br/> 
 					    {this.props.notes}
 
+					<button className = "destroy" onClick={this.deleteEntry}></button>
+					
 					</p>
     				
     			</div>
@@ -43,4 +63,4 @@ var Book = React.createClass({
 		}
 	});
 
-	module.exports = Book;
+	module.exports = EditableBook;
