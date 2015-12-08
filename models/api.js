@@ -97,7 +97,6 @@ app.get('/api/books', function (req,res) {
 
       else if(req.headers.userbooks == '2')
       {
-        console.log(req.headers);
         textBook.find({title:req.headers.searchvalue}, function(err, items) {
           if (err) {
             res.sendStatus(403);
