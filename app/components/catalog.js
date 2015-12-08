@@ -15,6 +15,8 @@ var Catalog = React.createClass({
     },
 
     componentDidMount: function() {
+        console.log("THIS:::");
+        console.log(this.props.value);
         api.getBooks(this.listSet);
     },
 

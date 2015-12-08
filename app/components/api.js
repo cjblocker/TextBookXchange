@@ -66,6 +66,26 @@ var api = {
     });
   },
   
+  searchBooks: function(searchValue, cb) {
+    var url = "/api/books";
+    $.ajax({
+      url: url,
+      dataType: 'json',
+      type: 'GET',
+      headers: {'Authorization': localStorage.token,
+            'UserBooks': '2',
+            'searchvalue': searchValue},
+      success: function(res) {
+        if(cb)
+          cb(true, res);
+      },
+      error: function(xhr, status, err) {
+        delete localStorage.token;
+        if (cb)
+          cb(false, status);
+      }   
+    });
+  },
 
   // add an item, call the callback when complete
   addItem: function(title, cb) {
@@ -180,7 +200,6 @@ var api = {
   },
 
   updateBook: function(item, title, courseNumber, edition, author, list_type, price, notes, cb) {
-    console.log(item);
     var url = "/api/books" ;
     $.ajax({
       url: url,

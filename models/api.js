@@ -95,6 +95,21 @@ app.get('/api/books', function (req,res) {
               });
       }
 
+      else if(req.headers.userbooks == '2')
+      {
+        console.log(req.headers);
+        textBook.find({title:req.headers.searchvalue}, function(err, items) {
+          if (err) {
+            res.sendStatus(403);
+            return;
+          }
+          // return value is the list of items as JSON
+                    //console.log(items);
+              //items found here.
+          res.json({items: items});
+              });
+      }
+
       else {
          //   if the token is valid, find all the user's items and return them
             textBook.find({}, function(err, items) {

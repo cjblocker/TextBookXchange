@@ -6,19 +6,36 @@ var api = require("./api.js");
 var Link = ReactRouter.Link;
 
 var Home = React.createClass({
+
   getInitialState: function() {
-    return {searchValue: ""}
+  return {
+    searchValue: "",
+    items : []
+    }
   },
+
+  listSet: function(status, data) {
+    // set the state for the list of items
+    if(status)
+        this.setState({
+          items: data.items
+        });
+  },
+
+
+
   formChange: function(event) {
     this.setState({searchValue: event.target.value});
   },
 
   search: function() {
-    console.log("Searching");
-    console.log(this.state.searchValue);
+    api.searchBooks(this.state.searchValue, this.listSet);
+    //this.state.items correctly returns exact title matches for books
+    console.log(this.state.items);
   },
 
   render: function() {
+
   	var imgBanner = {
 		width: 1000,
 		height: 500,
@@ -36,7 +53,8 @@ var Home = React.createClass({
         display: 'inline-block',
         opacity: .95
 	};
-    return (<div>
+    return (
+      <div>
     		<div style={imgBanner}>
     			<div style={searchTitleDiv}>
     				<h3> Welcome to </h3>
