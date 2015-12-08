@@ -137,8 +137,8 @@ var EditableBook = React.createClass({
 				   	For <input type="text" style = {{width:500}} onChange={this.listTypeChange} value = {this.state.list_type} ref="list_type" autoFocus={true} /><br/>	 
 				    Notes: <input type="text" style = {{width:500}} onChange={this.notesChange} value = {this.state.notes} ref="notes" autoFocus={true} /><br/>	 
 					<br/>
-					<input className = "btn btn-danger" type="remove" value="Remove" onClick={this.deleteEntry}/>
-					<input className="btn btn-warning" type="submit" value="Submit" onClick={this.updateEntry}/>
+					<input className = "btn btn-danger" type="remove" value="Remove" onClick={this.deleteEntry} />
+					<input className="btn btn-warning" type="submit" value="Submit" onClick={this.updateEntry} />
 					</form>
     				
     			</div>

@@ -22,7 +22,9 @@ var Request = React.createClass({
         if (!btitle || !cnumber) {
             return;
         }
-        api.addRequest(btitle, function(loggedIn) {
+        console.log("Request");
+        console.log(this.props);
+        api.addRequest(this.props, btitle, function(loggedIn) {
 
           if (!loggedIn)
             this.history.pushState(null, '/login');

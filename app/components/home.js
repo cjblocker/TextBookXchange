@@ -1,6 +1,7 @@
 var React = require("react");
 var ReactRouter = require("react-router");
 var banner = require("../img/textbooks.jpg");
+var api = require("./api.js");
 
 var Link = ReactRouter.Link;
 
@@ -11,6 +12,12 @@ var Home = React.createClass({
   formChange: function(event) {
     this.setState({searchValue: event.target.value});
   },
+
+  search: function() {
+    console.log("Searching");
+    console.log(this.state.searchValue);
+  },
+
   render: function() {
   	var imgBanner = {
 		width: 1000,
@@ -38,7 +45,7 @@ var Home = React.createClass({
     				<form role="search">
                 <div className="form-group">
                   <input type="text" value={this.state.searchValue} onChange={this.formChange} className="form-control" placeholder="Search for a Textbook here" style={{width:'60%',display:'inline', borderRadius: '10px 0 0 10px', fontStyle:'italic'}} />
-                <button type="submit" className="btn search-btn" style={{display:'inline'}}>Submit</button>
+                <button type="submit" className="btn search-btn" onClick={this.search} style={{display:'inline'}}>Submit</button>
                 </div>
             </form>
     			</div>

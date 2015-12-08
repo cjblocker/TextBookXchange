@@ -94,6 +94,7 @@ app.get('/api/books', function (req,res) {
           res.json({items: items});
               });
       }
+
       else {
          //   if the token is valid, find all the user's items and return them
             textBook.find({}, function(err, items) {
@@ -282,7 +283,7 @@ app.put('/api/books/:item_id', function (req,res) {
 });
 
 //api users request
-app.put('/api/users/request/:user_id', function (req,res) {
+app.put('/api/users/:user_id', function (req,res) {
   // validate the supplied token
   user = User.verifyToken(req.headers.authorization, function(user) {
     if (user) {
@@ -297,7 +298,7 @@ app.put('/api/users/request/:user_id', function (req,res) {
           res.sendStatus(403);
     return;
         }
-        item.request = req.body.item.request;
+        item.request = item.request + req.body.item.request;
         item.save(function(err) {
     if (err) {
       res.sendStatus(403);

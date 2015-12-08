@@ -44,6 +44,8 @@ var api = {
     });
   },
 
+
+
   getUserBooks: function(cb) {
     var url = "/api/books";
     $.ajax({
@@ -93,7 +95,7 @@ var api = {
   },
 
   addRequest: function(request, cb) {
-    var url = "/api/users/request" ;
+    var url = "/api/users/"  ;
     $.ajax({
       url: url,
       contentType: 'application/json',

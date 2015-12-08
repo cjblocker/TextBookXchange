@@ -31,6 +31,7 @@ var Dashboard = React.createClass({
             {
                 return <EditableBook {...bookProps}/>
             });
+       list.sort();
 
         return (
          <div className='content'>

@@ -26,6 +26,7 @@ var Book = React.createClass({
     return (
     	<div>
     		<div style={bookitem}>
+    			
     				<br/>
     				<p>   
     				Title: {this.props.title}	Course Number: {this.props.courseNumber} 	Edition: {this.props.edition}  Author: {this.props.author}	${this.props.price}
