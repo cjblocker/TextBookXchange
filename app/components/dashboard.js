@@ -5,16 +5,30 @@ var Link = ReactRouter.Link;
 var Book = require("./book.js");
 var api = require("./api.js");
 var EditableBook = require("./editablebook.js");
+var BookRequest = require("./bookrequest.js");
 var Dashboard = React.createClass({
-     
+
     getInitialState: function() {
         return ({
-            items : []
+            items : [],
+            requests : []
         });
     },
 
     componentDidMount: function() {
         api.getUserBooks(this.listSet);
+        api.getRequests(this.listRequests);
+    },
+
+    listRequests: function(status, data) {
+
+        console.log('***');
+        console.log(data);
+
+      if(status)
+        this.setState({
+          requests: data.items
+        });
     },
 
     listSet: function(status, data) {
@@ -27,14 +41,22 @@ var Dashboard = React.createClass({
   	},
 
     render: function() {
-    	 var list = this.state.items.map(function(bookProps)
-            {
-                return <EditableBook {...bookProps}/>
-            });
+        var listreq = this.state.requests.map(function(requestProps)
+        {
+            return <BookRequest {...requestProps}/>
+        });
+
+    	  var list = this.state.items.map(function(bookProps)
+        {
+            return <EditableBook {...bookProps}/>
+        });
 
         return (
          <div className='content'>
         <h3> User Profile: </h3>
+        <h4> Requests: </h4>
+        {listreq}
+
         <br/><br/>
         <h4> My Books: </h4>
          {list}

@@ -23,6 +23,27 @@ var api = {
     });
   },
 
+  getRequests: function(cb) {
+    var url = "/api/requests";
+    $.ajax({
+      url: url,
+      dataType: 'json',
+      type: 'GET',
+      headers: {'Authorization' : localStorage.token},
+      
+      success: function(res) {
+        if(cb)
+          cb(true, res);
+      },
+      error: function(xhr, status, err) {
+        delete localStorage.token;
+        if (cb)
+          cb(false, status);
+      }      
+
+    });
+  },
+
   getBooks: function(cb) {
     var url = "/api/books";
     $.ajax({
@@ -114,23 +135,28 @@ var api = {
 
   },
 
-  addRequest: function(request, cb) {
-    var url = "/api/users/"  ;
+  addRequest: function(title,course, cb) {  
+    var url = "/api/requests";
     $.ajax({
       url: url,
       contentType: 'application/json',
       data: JSON.stringify({
         item: {
-          'request': request
+          'title': title,
+          'course': course
         }
       }),
-      type: 'PUT',
+      type: 'POST',
       headers: {'Authorization': localStorage.token},
       success: function(res) {
         if (cb)
           cb(true, res);
+
+        console.log("RESULT");
+        console.log(res);
       },
       error: function(xhr, status, err) {
+        console.log("ERROR");
         // if there is an error, remove the login token
         delete localStorage.token;
         if (cb)
@@ -172,33 +198,6 @@ var api = {
     });
   },
 
-  // update an item, call the callback when complete
-  updateItem: function(item, cb) {
-    var url = "/api/items/" + item.id;
-    $.ajax({
-      url: url,
-      contentType: 'application/json',
-      data: JSON.stringify({
-        item: {
-          title: item.title,
-          completed: item.completed
-        }
-      }),
-      type: 'PUT',
-      headers: {'Authorization': localStorage.token},
-      success: function(res) {
-        if (cb)
-          cb(true, res);
-      },
-      error: function(xhr, status, err) {
-        // if there is any error, remove any login token
-        delete localStorage.token;
-        if (cb)
-          cb(false, status);
-      }
-    });
-  },
-
   updateBook: function(item, title, courseNumber, edition, author, list_type, price, notes, cb) {
     var url = "/api/books" ;
     $.ajax({
@@ -231,10 +230,9 @@ var api = {
   },
 
 
-  // delete an item, call the callback when complete
-  deleteItem: function(item, cb) {
-    var url = "/api/items/" + item.id;
-    $.ajax({
+  deleteBook: function(item, cb) {
+    var url = "/api/books/" + item.id;
+       $.ajax({
       url: url,
       type: 'DELETE',
       headers: {'Authorization': localStorage.token},
@@ -251,8 +249,10 @@ var api = {
     });
   },
 
-  deleteBook: function(item, cb) {
-    var url = "/api/books/" + item.id;
+
+
+deleteRequest: function(item, cb) {
+    var url = "/api/requests/" + item.id;
        $.ajax({
       url: url,
       type: 'DELETE',

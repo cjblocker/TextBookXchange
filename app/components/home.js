@@ -31,7 +31,6 @@ var Home = React.createClass({
   search: function() {
     api.searchBooks(this.state.searchValue, this.listSet);
     //this.state.items correctly returns exact title matches for books
-    console.log(this.state.items);
   },
 
   render: function() {

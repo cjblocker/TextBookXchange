@@ -22,9 +22,8 @@ var Request = React.createClass({
         if (!btitle || !cnumber) {
             return;
         }
-        console.log("Request");
-        console.log(this.props);
-        api.addRequest(this.props, btitle, function(loggedIn) {
+        
+        api.addRequest(btitle, cnumber, function(loggedIn) {
 
           if (!loggedIn)
             this.history.pushState(null, '/login');
@@ -48,8 +47,6 @@ var Request = React.createClass({
                 <input type="text" placeholder="Book Title" ref="booktitle" autoFocus={true} />
                 <br/><br/>
                 <input type="text" placeholder="Course Number" ref="coursenumber"/>
-                <br/><br/>
-                <input type="text" placeholder="Edition" ref="edition"/>
                 <br/><br/>
                 <input className="btn btn-warning" type="submit" value="Request" />
                 </form>
