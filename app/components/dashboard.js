@@ -29,6 +29,7 @@ var Dashboard = React.createClass({
 
     listSet: function(status, data) {
       // set the state for the list of items
+      console.log(data.items);
       if(status)
           this.setState({
             items: data.items
