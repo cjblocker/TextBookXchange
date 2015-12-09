@@ -94,7 +94,6 @@ app.get('/api/requests', function (req,res) {
     return;
   }
   // return value is the list of items as JSON
-  console.log(items);
 
   res.json({items: items});
       });

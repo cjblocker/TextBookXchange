@@ -30,10 +30,7 @@ var EditableBook = React.createClass({
 	},
 
 	updateEntry: function() {
-		//api.deleteBook(this.props, function(loggedIn){});
-		// api.updateBook(this.props, this.refs.title.value, this.refs.courseNumber.value, this.refs.edition.value, this.refs.author.value, this.refs.list_type.value, this.refs.price.value, this.refs.notes.value, function(loggedIn) {
-  //     	console.log("THIS: ");
-  //     	console.log(this.props);
+	// api.updateBook(this.props, this.refs.title.value, this.refs.courseNumber.value, this.refs.edition.value, this.refs.author.value, this.refs.list_type.value, this.refs.price.value, this.refs.notes.value, function(loggedIn) {
 
       api.addBook(this.refs.title.value, this.refs.courseNumber.value, this.refs.edition.value, this.refs.author.value, this.refs.list_type.value, this.refs.price.value, this.refs.notes.value, function(loggedIn) {
       //login callback
@@ -47,13 +44,6 @@ var EditableBook = React.createClass({
       }
         
     }.bind(this)); 
-        // console.log(this.refs.title.value);
-        // console.log(this.refs.courseNumber.value);
-        // console.log(this.refs.edition.value);
-        // console.log(this.refs.author.value);
-        // console.log(this.refs.list_type.value);
-        // console.log(this.refs.price.value);
-        // console.log(this.refs.notes.value);
 
 	},
 

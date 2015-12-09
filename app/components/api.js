@@ -152,11 +152,8 @@ var api = {
         if (cb)
           cb(true, res);
 
-        console.log("RESULT");
-        console.log(res);
       },
       error: function(xhr, status, err) {
-        console.log("ERROR");
         // if there is an error, remove the login token
         delete localStorage.token;
         if (cb)

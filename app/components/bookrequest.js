@@ -49,7 +49,10 @@ var BookRequest = React.createClass({
     				<br/>
     				<p>   
     				Request: <br/>
-    				Title: {this.props.title}	Course Number: {this.props.course}  
+    				Title: {this.props.title}	
+    				<br/>
+    				Course Number: {this.props.course}  
+    				<br/>
 	    			<input className = "btn btn-danger" type="remove" value="Remove" onClick={this.deleteRequest} />
 
 					</p>

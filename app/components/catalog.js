@@ -15,8 +15,6 @@ var Catalog = React.createClass({
     },
 
     componentDidMount: function() {
-        console.log("THIS:::");
-        console.log(this.props.value);
         api.getBooks(this.listSet);
     },
 
@@ -31,7 +29,6 @@ var Catalog = React.createClass({
 
   //this.state.items contains items
     render: function() {
-          console.log(this.state.items)
          var list = this.state.items.map(function(bookProps)
             {
                 return <Book key={bookProps.id} {...bookProps}/>

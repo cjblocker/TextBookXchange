@@ -22,8 +22,6 @@ var Dashboard = React.createClass({
 
     listRequests: function(status, data) {
 
-        console.log('***');
-        console.log(data);
 
       if(status)
         this.setState({
