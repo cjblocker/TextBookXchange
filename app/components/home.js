@@ -1,11 +1,14 @@
 var React = require("react");
 var ReactRouter = require("react-router");
+var History = ReactRouter.History;
 var banner = require("../img/textbooks.jpg");
 var api = require("./api.js");
 
 var Link = ReactRouter.Link;
 
 var Home = React.createClass({
+  // mixin for navigation
+  mixins: [ History ],
 
   getInitialState: function() {
   return {
@@ -14,23 +17,15 @@ var Home = React.createClass({
     }
   },
 
-  listSet: function(status, data) {
-    // set the state for the list of items
-    if(status)
-        this.setState({
-          items: data.items
-        });
-  },
-
-
-
   formChange: function(event) {
     this.setState({searchValue: event.target.value});
+
   },
 
-  search: function() {
-    api.searchBooks(this.state.searchValue, this.listSet);
-    //this.state.items correctly returns exact title matches for books
+  search: function(event) {
+    // prevent default browser submit
+    event.preventDefault();
+    this.history.pushState(null, '/catalog', {q: this.state.searchValue});
   },
 
   render: function() {
