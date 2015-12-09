@@ -2,6 +2,7 @@ var React = require("react");
 var ReactDOM = require('react-dom');
 var ReactRouter = require("react-router");
 
+var HashHistory = require('history/lib/createBrowserHistory');
 var Router = ReactRouter.Router;
 var Route = ReactRouter.Route;
 var IndexRoute = ReactRouter.IndexRoute;
@@ -22,7 +23,7 @@ require("../favicon.ico");
 require("../favicon.png");
 
 var routes = (
-  <Router>
+  <Router history={HashHistory()}>
     <Route name="app" path="/" component ={App}>
       <Route name="catalog" path ="/catalog" component ={Catalog}/>
       <Route name="request" path ="/request" component ={Request}/>

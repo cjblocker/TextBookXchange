@@ -2,6 +2,8 @@ var app = require('./express.js');
 var User = require('./user.js');
 var Item = require('./item.js');
 var textBook = require('./textbook.js');
+
+const path = require('path');
 // setup body parser
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());
@@ -367,3 +369,8 @@ app.delete('/api/books/:item_id', function (req,res) {
   });
 });
 
+// handle every other route with index.html, which will contain
+// a script tag to your application's JavaScript file(s).
+app.get('*', function (request, response){
+  response.sendFile(path.resolve('', 'public', 'index.html'))
+})

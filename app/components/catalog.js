@@ -31,13 +31,15 @@ var Catalog = React.createClass({
 
   //this.state.items contains items
     render: function() {
+          console.log(this.state.items)
          var list = this.state.items.map(function(bookProps)
             {
-                return <Book {...bookProps}/>
+                return <Book key={bookProps.id} {...bookProps}/>
             });
         return (
             <div className='content'>
              <h2> TextBook Catalog: </h2>
+                {this.props.location.query.q?(<h3>Displaying Results for {this.props.location.query.q}</h3>):""}
                 <br/>
                 {list}
             </div>

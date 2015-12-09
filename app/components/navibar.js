@@ -14,7 +14,7 @@ module.exports = React.createClass({
             <span className="icon-bar"></span>
             <span className="icon-bar"></span>
           </button>
-          <a className="navbar-brand" href="#">TextBook<span style={{fontSize: 'larger'}}>X</span>change</a>
+          <Link className="navbar-brand" to="">TextBook<span style={{fontSize: 'larger'}}>X</span>change</Link>
         </div>
 
 
@@ -24,17 +24,17 @@ module.exports = React.createClass({
           </ul>
           
           <ul className="nav navbar-nav navbar-right">
-              <li><Link className="btn" to="catalog">Catalog</Link></li>
+              <li><Link className="btn" activeClassName="btn" to="catalog">Catalog</Link></li>
 
             {this.props.loggedIn ? ([
-                   <li key='request'><a className="btn" href="#/request">Request</a></li>,
-                   <li key='list'><a className="btn" href="#/listbook">List Book</a></li>,
-                   <li key='dashboard'><a className="btn" href="#/dashboard">Dashboard</a></li>,
-                   <li key='logout'><a className="btn" href="#" onClick={this.props.logout}>Logout</a></li>
+                   <li key='request'><Link className="btn" activeClassName="btn" to="request">Request</Link></li>,
+                   <li key='list'><Link className="btn" activeClassName="btn" to="listbook">List Book</Link></li>,
+                   <li key='dashboard'><Link className="btn" activeClassName="btn" to="dashboard">Dashboard</Link></li>,
+                   <li key='logout'><Link className="btn" activeClassName="btn" to="" onClick={this.props.logout}>Logout</Link></li>
                    ]
                ) : ([
-              <li key='login'><Link className="btn" to="login">Login</Link></li>,
-              <li key='register'><Link className="btn" to="register">Register</Link></li>
+              <li key='login'><Link className="btn" activeClassName="btn" to="login">Login</Link></li>,
+              <li key='register'><Link className="btn" activeClassName="btn" to="register">Register</Link></li>
               ])}
           </ul>
         </div>
