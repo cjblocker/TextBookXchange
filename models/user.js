@@ -17,7 +17,7 @@ var userSchema = new Schema({
   username: {type: String, index: true, unique: true},
   password_hash: String,
   email: String,
-  request: String
+  request: [String]
 });
 
 // hash the password
