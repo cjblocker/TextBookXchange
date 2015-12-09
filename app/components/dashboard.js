@@ -21,8 +21,6 @@ var Dashboard = React.createClass({
     },
 
     listRequests: function(status, data) {
-
-
       if(status)
         this.setState({
           requests: data.items
