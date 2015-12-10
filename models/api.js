@@ -85,11 +85,13 @@ app.get('/api/requests', function (req,res) {
 
 // get all textbooks for the user
 app.get('/api/books', function (req,res) {
-    
+    //console.log(req.headers);
       if(req.headers.userbooks == '1')
       {
         user = User.verifyToken(req.headers.authorization, function(user) {
-          textBook.find({user:user.username}, function(err, items) {
+         // console.log("USER");
+         // console.log(user);
+          textBook.find({user:user.name}, function(err, items) {
           if (err) {
             res.sendStatus(403);
             return;
@@ -141,6 +143,7 @@ user = User.verifyToken(req.headers.authorization, function(user) {
           price:req.body.item.price,
           author:req.body.item.author,
           notes:req.body.item.notes,
+          //CHANGED from user:user.name,
           user:user.name,
           userEmail: user.email 
       },
