@@ -9,7 +9,6 @@ var IndexRoute = ReactRouter.IndexRoute;
 
 var App = require("./app.js");
 var Home = require("./home.js");
-var List = require("./list.js");
 var Login = require("./login.js");
 var Register = require("./register.js");
 var Catalog = require("./catalog.js");
@@ -29,9 +28,6 @@ var routes = (
       <Route name="request" path ="/request" component ={Request}/>
       <Route name="listbook" path ="/listbook" component ={ListBook}/>
       <IndexRoute component = {Home} />
-      <Route name="list" path="/list" component={List} />
-      <Route name="active" path="/list/active" component={List} />
-      <Route name="completed" path="/list/completed" component={List} />
       <Route name="login" path="/login" component={Login} />
       <Route name="register" path="/register" component={Register} />
       <Route name='contact' path="contact" component={Contact} />

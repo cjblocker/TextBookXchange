@@ -8,7 +8,6 @@ var db = mongoose.connect('mongodb://localhost/list');
 // models
 var api = require('./models/api.js');
 var User = require('./models/user.js');
-var Item = require('./models/item.js');
 
 // start the server
 var server = app.listen(3000, function () {
