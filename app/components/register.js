@@ -26,8 +26,8 @@ var Register = React.createClass({
     var username = this.refs.username.value;
     var password = this.refs.password.value;
     var email = this.refs.email.value;
-    if (!name || !username || !password || !email) {
-      return;
+    if (!name || !username || !password || !email || username.indexOf(' ') >= 0) {
+       return 
     }
     // register via the API
     auth.register(name, username, password, email, function(loggedIn) {
