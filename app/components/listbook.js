@@ -38,7 +38,7 @@ var ListBook = React.createClass({
         this.refs.coursenumber.value = '';
         this.refs.edition.value = '';
         this.refs.author.value = '';
-        this.refs.list_type.value = '';
+        this.refs.list_type.value = 'Sell';
         this.refs.price.value = '';
         this.refs.notes.value = '';
     },
@@ -58,11 +58,14 @@ var ListBook = React.createClass({
                 <br/><br/>
                 <input type="text" style = {{width:500}}placeholder="Author" ref="author"/>
                 <br/><br/>
-                <input type="text" style = {{width:500}}placeholder="Rent or Sale" ref="list_type"/>
+                <select multiple={false} ref='list_type' style = {{width:500, height: 28}}>
+                    <option type="text" value='Sell'>Sell</option>
+                    <option type="text" value='Rent'>Rent</option>
+                </select>
                 <br/><br/>
                 <input type="text" style = {{width:500}}placeholder="Asking Price" ref="price"/>
                 <br/><br/>
-                <input type="text" style = {{width:500}}placeholder="Notes" ref="notes"/>
+                <textarea style = {{width:500, maxWidth:500}} placeholder="Notes" ref="notes"/>
                 <br/><br/>
                 <input className="btn btn-warning" type="submit" value="Submit" />
                 </form>

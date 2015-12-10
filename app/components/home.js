@@ -12,8 +12,7 @@ var Home = React.createClass({
 
   getInitialState: function() {
   return {
-    searchValue: "",
-    items : []
+    searchValue: ""
     }
   },
 
@@ -40,12 +39,12 @@ var Home = React.createClass({
 	};
 	var searchTitleDiv = {
 		margin:  '150px 300px',
-        width: 400,
-        borderRadius: 20,
-        backgroundColor: '#FBB040',
-		textAlign: 'center',
-        display: 'inline-block',
-        opacity: .95
+    width: 400,
+    borderRadius: 20,
+    backgroundColor: '#FBB040',
+    textAlign: 'center',
+    display: 'inline-block',
+    opacity: .95
 	};
     return (
       <div>
