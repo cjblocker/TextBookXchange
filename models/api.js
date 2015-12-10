@@ -85,10 +85,10 @@ app.get('/api/requests', function (req,res) {
 
 // get all textbooks for the user
 app.get('/api/books', function (req,res) {
-  user = User.verifyToken(req.headers.authorization, function(user) {
     
       if(req.headers.userbooks == '1')
       {
+        user = User.verifyToken(req.headers.authorization, function(user) {
           textBook.find({user:user.username}, function(err, items) {
           if (err) {
             res.sendStatus(403);
@@ -97,6 +97,7 @@ app.get('/api/books', function (req,res) {
           // return value is the list of items as JSON
           res.json({items: items});
               });
+        });
       }
 
       else if(req.headers.userbooks == '2')
@@ -123,8 +124,7 @@ app.get('/api/books', function (req,res) {
             res.json({items: items});
                 });
       } 
-  
-  });
+
 });
 
 
