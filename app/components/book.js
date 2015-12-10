@@ -17,10 +17,14 @@ var Book = React.createClass({
 	},
 
 	renderInfo: function() {
-		return (<div style={{height:130}}>
+		return (<div style={{height:130, padding: '20px'}}>
 			<p>
-				"hello world"
+				For: {this.props.list_type} <br />
+				Offered by: {this.props.user} <br />
+				Contact email: {this.props.userEmail} <br />
+				Additional Notes: {this.props.notes}
 			</p>
+			
 		</div>);
 	},
 
@@ -60,16 +64,17 @@ var Book = React.createClass({
 	}
 
     return (
-    	<div className='center' style={{width:800}} onClick={this.handleClick}>
+    	<div className='center' style={{width:800}}>
     		<div style={bookitem}>
     			<div style={{height:70, width:'100%'}}>
     				<div style={priceCircle}> ${this.props.price} </div>
-    				<div style={{display:'inline-block', width:500, marginLeft:'10px'}}>
+    				<div style={{display:'inline-block', marginLeft:'10px'}}>
     					<span style={{fontSize:'2em'}}> {this.props.title}</span> 
     					<span style={{fontSize: '1.5em', fontStyle:'italic'}}>, {this.props.edition} edition</span><br />
     					<span style={{fontSize: '1.5em'}}>By: {this.props.author} </span>
     				</div>
-    				<div className={this.state.open?"verticalFlip":""} style={arrowDiv}></div>
+    				{this.props.editable?<div className = "btn btn-danger" style={{height:50, width:200, fontSize: '2em', textAlign:'center', float:'right', margin: '10px'}} onClick={this.props.editClick}> Edit </div>:""}
+    				<div className={this.state.open?"verticalFlip":""} style={arrowDiv} onClick={this.handleClick}></div>
     			</div>
     			{this.state.open?this.renderInfo():""}
     		</div>

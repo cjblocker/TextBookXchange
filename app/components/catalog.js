@@ -45,7 +45,6 @@ var Catalog = React.createClass({
 
     includeChange: function(event) {
       var new_inc = this.state.searchpath;
-      console.log(new_inc);
       if(event.target.checked){
         new_inc.push(event.target.value);
       }
@@ -83,7 +82,6 @@ var Catalog = React.createClass({
 
   searchFilter: function(bookProps) {
     var searchpath = this.props.location.query.inc?this.props.location.query.inc:["title"];
-    console.log(this.props.location.query.inc);
     if (!this.props.location.query.q) { return true};
     var terms = this.props.location.query.q.toLowerCase().split(' ');
     for (var i = 0; i < searchpath.length; i++) {

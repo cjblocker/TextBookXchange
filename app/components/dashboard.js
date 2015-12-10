@@ -29,7 +29,6 @@ var Dashboard = React.createClass({
 
     listSet: function(status, data) {
       // set the state for the list of items
-      console.log(data.items);
       if(status)
           this.setState({
             items: data.items
@@ -38,15 +37,28 @@ var Dashboard = React.createClass({
   	},
 
     render: function() {
+        var infoDiv = {
+          width: 400,
+          textAlign: 'center'
+        }
+
         var listreq = this.state.requests.map(function(requestProps)
         {
-            return <BookRequest {...requestProps}/>
+            return <BookRequest key={requestProps.id} {...requestProps}/>
         });
+
+        if (this.state.requests.length == 0) {
+          listreq = <div className='center' style={infoDiv}><p>You have not requested any books. <Link to="/request"> Click here </Link> to make your first request! Requested books will appear on your dashboard as they become available</p></div>
+        };
 
     	  var list = this.state.items.map(function(bookProps)
         {
-            return <EditableBook {...bookProps}/>
+            return <EditableBook key={bookProps.id} {...bookProps}/>
         });
+
+        if (this.state.items.length == 0) {
+          list = <div className='center' style={infoDiv}><p>You have not posted any books. <Link to="/listbook"> Click here </Link> to list your first book! Books you post will be viewable to the public on the catalog page</p></div>
+        };
 
         return (
          <div className='content'>

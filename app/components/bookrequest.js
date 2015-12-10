@@ -72,32 +72,31 @@ var BookRequest = React.createClass({
 
 	render: function() {
   	var requestitem = {
-	    width: 800,
-	    height: 100,
+	    width: 200,
+	    height: 150,
+	    padding: '15px',
 	    borderRadius: 30,
 	    backgroundColor: '#FBB040',
 	    textAlign:'center',
 	    display: 'inline-block',
-	    opacity: .95,
 	    margin: '15px 30px'
 	}
 
     return (
-    	<div>
     		<div style={requestitem}>
     				<p>   
     				Title: {this.props.title}	
     				<br/>
     				Course Number: {this.props.course} 
+    				<br />
     				{this.state.found?"Item is in Catalog":"Item is not available"}
 
     				<br/>
-	    			<input className = "btn btn-danger" type="remove" value="Remove" onClick={this.deleteRequest} />
 
 					</p>
+	    			<div className = "btn btn-danger" type="remove" value="Remove" onClick={this.deleteRequest} >Remove</div>
     				
     			</div>
-    	</div>
 
     	);
 		}

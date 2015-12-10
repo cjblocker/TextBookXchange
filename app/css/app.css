@@ -30,6 +30,10 @@ body {
     padding: 10px;
 }
 
+.foot a{
+    color: black;
+}
+
 .center {
     margin: auto;
 }

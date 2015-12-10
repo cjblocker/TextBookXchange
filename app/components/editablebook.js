@@ -4,6 +4,7 @@ var History = ReactRouter.History;
 var Link = ReactRouter.Link;
 var api = require("./api.js");
 var Dashboard = require("./dashboard.js");
+var Book = require("./book.js");
 
 var EditableBook = React.createClass({
 
@@ -21,7 +22,7 @@ var EditableBook = React.createClass({
         this.history.pushState(null, '/login');
       else
       {
-      	this.history.pushState(null, '/login');
+        this.history.pushState(null, '/login');
       	this.history.pushState(null, '/dashboard');
       }
         
@@ -55,7 +56,8 @@ var EditableBook = React.createClass({
     	author: this.props.author,
     	list_type: this.props.list_type,
     	price: this.props.price,
-    	notes: this.props.notes
+    	notes: this.props.notes,
+    	edit: false
     	}
   	},
 
@@ -101,16 +103,28 @@ var EditableBook = React.createClass({
 	  	})
 	  },
 
+	  handleClick: function(){
+	  	event.preventDefault();
+	  	this.setState({edit: !this.state.edit})
+	  },
+
 	render: function() {
+		if (this.state.edit) {
+			return this.renderEditable();
+		}
+		else{
+			return <Book {...this.props} editable={true} editClick={this.handleClick} />
+		}
+	},
+
+	renderEditable: function() {
   	var bookitem = {
 	    width: 800,
-	    height: 300,
 	    borderRadius: 30,
 	    backgroundColor: '#FBB040',
 	    textAlign:'center',
 	    display: 'inline-block',
-	    opacity: .95,
-	    margin: '15px 30px'
+	    margin: '5px 30px'
 	}
 	
 
@@ -118,18 +132,23 @@ var EditableBook = React.createClass({
     	<div>
     		<div style={bookitem}>
     				<br/> 
+    				<div className='center' style={{width:650, padding:10}}>
     				<form className="form-vertical" >
+    				<div style={{textAlign:'right'}}>
     				Title:    <input type="text" style = {{width:500}} onChange={this.titleChange} value = {this.state.title} ref="title" autoFocus={true} /><br/>
     				Course Number: <input type="text" style = {{width:500}} onChange={this.courseNumberChange} value = {this.state.courseNumber} ref="courseNumber" autoFocus={true} /><br/>
 					Edition: <input type="text" style = {{width:500}} onChange={this.editionChange} value = {this.state.edition} ref="edition" autoFocus={true} /><br/>	 
     				Author: <input type="text" style = {{width:500}} onChange={this.authorChange} value = {this.state.author} ref="author" autoFocus={true} /><br/>	 
     				$ <input type="text" style = {{width:500}} onChange={this.priceChange} value={this.state.price} ref="price" autoFocus={true} /><br/>	 
 				   	For <input type="text" style = {{width:500}} onChange={this.listTypeChange} value = {this.state.list_type} ref="list_type" autoFocus={true} /><br/>	 
-				    Notes: <input type="text" style = {{width:500}} onChange={this.notesChange} value = {this.state.notes} ref="notes" autoFocus={true} /><br/>	 
+				    Notes: <textarea type="text" style = {{width:500, maxWidth:500}} onChange={this.notesChange} value = {this.state.notes} ref="notes" autoFocus={true} /><br/>	 
 					<br/>
 					<input className = "btn btn-danger" type="remove" value="Remove" onClick={this.deleteEntry} />
-					<input className="btn btn-warning" type="submit" value="Submit" onClick={this.updateEntry} />
+					<input className="btn btn-warning" type="submit" value="Cancel" onClick={this.handleClick} />
+					<input className="btn btn-warning" type="submit" value="Update" onClick={this.updateEntry} />
+					</div>
 					</form>
+					</div>
     				
     			</div>
     	</div>
