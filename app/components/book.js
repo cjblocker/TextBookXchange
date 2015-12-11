@@ -19,12 +19,12 @@ var Book = React.createClass({
 	renderInfo: function() {
 		return (<div style={{minHeight:130, padding: '20px'}}>
 			<p>
-				{(this.props.title.length>this.maxsize)?<span>{"Full title: "+this.props.title}<br /></span>:""} 
-				Course: {this.props.courseNumber}<br />
-				For: {(this.props.list_type=="Sell")?"Sale":"Rent"} <br />
-				Offered by: {this.props.user} <br />
-				Contact email: {this.props.userEmail} <br />
-				Additional Notes: {this.props.notes}
+				{(this.props.title.length>this.maxsize)?<span><strong>Full title: </strong>{this.props.title}<br /></span>:""} 
+				<strong>Course: </strong>{this.props.courseNumber}<br />
+				<strong>For: </strong>{(this.props.list_type=="Sell")?"Sale":"Rent"} <br />
+				<strong>Offered by: </strong>{this.props.user} <br />
+				<strong>Contact email: </strong>{this.props.userEmail} <br />
+				<strong>Additional Notes: </strong>{this.props.notes}
 			</p>
 			
 		</div>);
