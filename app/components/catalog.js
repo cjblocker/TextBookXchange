@@ -82,6 +82,9 @@ var Catalog = React.createClass({
 
   searchFilter: function(bookProps) {
     var searchpath = this.props.location.query.inc?this.props.location.query.inc:["title"];
+    if(typeof searchpath == 'string'){
+      searchpath = [searchpath];
+    };
     if (!this.props.location.query.q) { return true};
     var terms = this.props.location.query.q.toLowerCase().split(' ');
     for (var i = 0; i < searchpath.length; i++) {
