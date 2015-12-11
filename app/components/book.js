@@ -17,10 +17,11 @@ var Book = React.createClass({
 	},
 
 	renderInfo: function() {
-		return (<div style={{height:130, padding: '20px'}}>
+		return (<div style={{minHeight:130, padding: '20px'}}>
 			<p>
 				{(this.props.title.length>this.maxsize)?<span>{"Full title: "+this.props.title}<br /></span>:""} 
-				For: {this.props.list_type} <br />
+				Course: {this.props.courseNumber}<br />
+				For: {(this.props.list_type=="Sell")?"Sale":"Rent"} <br />
 				Offered by: {this.props.user} <br />
 				Contact email: {this.props.userEmail} <br />
 				Additional Notes: {this.props.notes}
@@ -32,7 +33,7 @@ var Book = React.createClass({
 	render: function() {
   	var bookitem = {
 	    width: 800,
-	    height: this.state.open?200:70,
+	    minHeight: this.state.open?200:70,
 	    borderRadius: "35px 10px 10px 35px",
 	    backgroundColor: '#FBB040',
 	    display: 'inline-block',
