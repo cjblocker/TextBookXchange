@@ -1,5 +1,7 @@
 # TextbookXchange
 
+![Alt text](https://github.com/ekisu/TextBookXchange/blob/master/app/img/listbook1.png)
+
 Description:
 This app was created to help students find a more efficient way to sell or rent out their textbooks. Our app allows users to view a catalog of current book listings and search for a specific textbook before registering. After registering, users are allowed to list books for sale, request a textbook and edit their requests and listed textbooks. 
 
