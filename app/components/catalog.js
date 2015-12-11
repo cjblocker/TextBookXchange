@@ -35,12 +35,12 @@ var Catalog = React.createClass({
     },
 
     sortChange: function(event) {
+       this.setState({sort: event.target.value});
        this.history.pushState(null, '/catalog', {
           q: this.state.searchValue,
           inc: this.state.searchpath,
           sort: event.target.value
         });
-       this.setState({sort: event.target.value});
     },
 
     includeChange: function(event) {
