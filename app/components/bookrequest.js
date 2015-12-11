@@ -73,7 +73,7 @@ var BookRequest = React.createClass({
 	render: function() {
   	var requestitem = {
 	    width: 200,
-	    height: 150,
+	    minHeight: 150,
 	    padding: '15px',
 	    borderRadius: 30,
 	    borderColor: this.state.found?'#DE703C':'transparent',
@@ -82,17 +82,18 @@ var BookRequest = React.createClass({
 	    backgroundColor: '#FBB040',
 	    textAlign:'center',
 	    display: 'inline-block',
-	    margin: '15px 30px'
+	    margin: '15px 30px',
+	    verticalAlign: 'top'
 	}
 
     return (
     		<div style={requestitem}>
     				<p>   
-    				Title: {this.props.title}	
+    				<strong>Title: </strong>{this.props.title}	
     				<br/>
-    				Course Number: {this.props.course} 
+    				<strong>Course Number: </strong>{this.props.course} 
     				<br />
-    				{this.state.found?"Item is in Catalog":"Item is not available"}
+    				<em>{this.state.found?"Item is in Catalog":"Item is not available"}</em>
 
     				<br/>
 
