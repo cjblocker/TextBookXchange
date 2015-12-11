@@ -19,6 +19,7 @@ var Book = React.createClass({
 	renderInfo: function() {
 		return (<div style={{height:130, padding: '20px'}}>
 			<p>
+				{(this.props.title.length>this.maxsize)?<span>{"Full title: "+this.props.title}<br /></span>:""} 
 				For: {this.props.list_type} <br />
 				Offered by: {this.props.user} <br />
 				Contact email: {this.props.userEmail} <br />
@@ -62,14 +63,15 @@ var Book = React.createClass({
 		backgroundImage: 'url('+arrow+')',
 		float: 'right'
 	}
+	this.maxsize = this.props.editable?15:30;
 
     return (
     	<div className='center' style={{width:800}}>
     		<div style={bookitem}>
     			<div style={{height:70, width:'100%'}}>
     				<div style={priceCircle}> ${this.props.price} </div>
-    				<div style={{display:'inline-block', marginLeft:'10px'}}>
-    					<span style={{fontSize:'2em'}}> {this.props.title}</span> 
+    				<div style={{display:'inline-block', marginLeft:'10px', maxWidth: this.props.editable?350:550, overflow:'hidden', textOverflow:'ellipsis'}}>
+    					<span style={{fontSize:'2em'}}> {this.props.title.substring(0,this.maxsize)}{(this.props.title.length>this.maxsize)?"...":""}</span> 
     					<span style={{fontSize: '1.5em', fontStyle:'italic'}}>,{this.props.edition}E</span><br />
     					<span style={{fontSize: '1.5em'}}>By: {this.props.author} </span>
     				</div>
