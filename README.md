@@ -1,7 +1,7 @@
 # TextbookXchange
 
 Description:
-This app was created to help students find a more efficient way to sell their textbooks. Our app allows users to view a catalog of current book listings and search for a specific textbook before registering. After registering, users are allowed to list books for sale, request a textbook and edit their requests and listed textbooks. 
+This app was created to help students find a more efficient way to sell or rent out their textbooks. Our app allows users to view a catalog of current book listings and search for a specific textbook before registering. After registering, users are allowed to list books for sale, request a textbook and edit their requests and listed textbooks. 
 
 #Search:
 
@@ -18,6 +18,10 @@ The request page allows registered users to request a textbook by book title and
 #List a Book:
 
 Registered users can list a textbook to TextbookXchange from the 'List Book' page. The accompanying form requires the user to submit the book title, course number for the textbook (example: CS360), textbook author, textbook edition, whether the book is for rent or for sale, an asking price, and any additional notes. All of this information as well as the seller's name and email address will be posted with the textbook in the catalog. Listed books can be viewed, updated and/or removed from the user's dashboard.
+
+#Dashboard:
+
+After logging in, a user's book requests and listed textbooks will show up in the 'Dashboard' page. Request statuses can be viewed here and will update instantly if the requested textbook is added. In addition, a user's listed textbooks can be removed or deleted here.
 
 #Login / Registration:
 
