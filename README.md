@@ -7,8 +7,8 @@ This app was created to help students find a more efficient way to sell or rent 
 
 #Search:
 
-![Alt text](https://github.com/ekisu/TextBookXchange/blob/master/app/img/search1.png)
 ![Alt text](https://github.com/ekisu/TextBookXchange/blob/master/app/img/search2.png)
+![Alt text](https://github.com/ekisu/TextBookXchange/blob/master/app/img/search1.png)
 ![Alt text](https://github.com/ekisu/TextBookXchange/blob/master/app/img/search3.png)
 
 The Search feature is available on the 'Home' page as well as the 'Catalog' page. It allows users to search for a textbook by the title of the book, the course number or the author. After searching, the user will be redirected to the Catalog page where any results will be displayed. 
@@ -35,7 +35,7 @@ Registered users can list a textbook to TextbookXchange from the 'List Book' pag
 
 #Dashboard:
 
-![Alt text](https://github.com/ekisu/TextBookXchange/blob/master/app/img/dashboard.png)
+![Alt text](https://github.com/ekisu/TextBookXchange/blob/master/app/img/dashboard1.png)
 
 After logging in, a user's book requests and listed textbooks will show up in the 'Dashboard' page. Request statuses can be viewed here and will update instantly if the requested textbook is added. In addition, a user's listed textbooks can be removed or deleted here.
 
