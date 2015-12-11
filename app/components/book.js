@@ -70,7 +70,7 @@ var Book = React.createClass({
     				<div style={priceCircle}> ${this.props.price} </div>
     				<div style={{display:'inline-block', marginLeft:'10px'}}>
     					<span style={{fontSize:'2em'}}> {this.props.title}</span> 
-    					<span style={{fontSize: '1.5em', fontStyle:'italic'}}>, {this.props.edition} edition</span><br />
+    					<span style={{fontSize: '1.5em', fontStyle:'italic'}}>,{this.props.edition}E</span><br />
     					<span style={{fontSize: '1.5em'}}>By: {this.props.author} </span>
     				</div>
     				{this.props.editable?<div className = "btn btn-danger" style={{height:50, width:200, fontSize: '2em', textAlign:'center', float:'right', margin: '10px'}} onClick={this.props.editClick}> Edit </div>:""}
