@@ -42,3 +42,54 @@ After logging in, a user's book requests and listed textbooks will show up in th
 #Login / Registration:
 
 Users can login or register for TextbookXchange. Registered users will have their information maintained by TextbookXchange, which includes all of their listed books and requests. Once they are finished with their session, they can logout and their private information will no longer be viewable. Registration requires a name, email address, username and password. Usernames are unique to a given person.
+
+#Contact Us:
+
+![Alt text](https://github.com/ekisu/TextBookXchange/blob/master/app/img/contact.png)
+
+Last of all, there is a 'Contact' page for users to email us if they have a problem with the app or in case they have a question.
+
+
+#Database Schema:
+Data is stored in our website through MongoDB. MongoDB is a document-based database system which allows one specific object (i.e. a textbook, user or request) to have its own unique document stored in the database. A document will contain all of the corresponding schema, or information for the object. For example, a textbook entry would be stored on a separate document that would contain a textbook title, edition, course number, author, type of listing (Rent or Sell), asking price and seller information. 
+
+Our models for document storage were: textbook, user and request.
+
+Textbook Schema:
+    var textBookSchema = new Schema({
+    	title: String,
+    	courseNumber: String,
+    	edition: String,
+    	list_type: String,
+    	author: String,
+    	price: String,
+    	notes: String,
+    	user: String,
+    	userEmail: String
+    });
+
+User Schema: 
+    var userSchema = new Schema({
+      name: String,
+      username: {type: String, index: true, unique: true},
+      password_hash: String,
+      email: String
+    });
+    
+Request Schema:
+    var requestSchema = new Schema({
+    	title: String,
+    	course: String,
+    	user: String
+    });
+
+
+#Future Work:
+
+We believe that this application could be expanded in many ways. Our first step to improving the application would be to send the user an email if one of his/her requested textbooks arrives. Another way that we would like to improve the site would be to include a place where a user can post an actual picture of the textbook that is being listed. Last of all, for each book that a user has listed, keeping track of the views that a book has had would help the user to know if a book needs to have more information or be listed at a cheaper price. 
+
+
+
+
+
+
